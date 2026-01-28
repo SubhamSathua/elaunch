@@ -25,7 +25,7 @@
                 CornerRadius="20"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Width="630"
+                Width="680"
                 Height="330">
             
             <Grid>
@@ -138,8 +138,8 @@
                                            Margin="0,0,0,25"/>
                                 
                                 <!-- Theme Cards -->
-                                <UniformGrid Columns="3"
-                                             HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left">
                                     
                                     <!-- System Default Card -->
                                     <Border x:Name="SystemThemeCard"
@@ -149,6 +149,7 @@
                                             CornerRadius="20"
                                             Margin="0,0,15,0"
                                             Cursor="Hand"
+                                            ClipToBounds="True"
                                             MouseLeftButtonDown="SystemTheme_Click"
                                             MouseEnter="ThemeCard_MouseEnter"
                                             MouseLeave="ThemeCard_MouseLeave">
@@ -178,6 +179,7 @@
                                             CornerRadius="20"
                                             Margin="0,0,15,0"
                                             Cursor="Hand"
+                                            ClipToBounds="True"
                                             MouseLeftButtonDown="DayTheme_Click"
                                             MouseEnter="ThemeCard_MouseEnter"
                                             MouseLeave="ThemeCard_MouseLeave">
@@ -202,6 +204,7 @@
                                             Height="110"
                                             CornerRadius="20"
                                             Cursor="Hand"
+                                            ClipToBounds="True"
                                             MouseLeftButtonDown="NightTheme_Click"
                                             MouseEnter="ThemeCard_MouseEnter"
                                             MouseLeave="ThemeCard_MouseLeave">
@@ -218,7 +221,7 @@
                                                        HorizontalAlignment="Center"/>
                                         </StackPanel>
                                     </Border>
-                                </UniformGrid>
+                                </StackPanel>
                             </StackPanel>
                             
                             <!-- Privacy Policy Content -->
