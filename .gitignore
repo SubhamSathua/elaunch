@@ -1,0 +1,40 @@
+# Build results
+**/bin
+**/obj
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+*.sln.iml
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build folders
+build/
+dist/
+
+# NuGet
+*.nupkg
+*.nuspec
+.nuget/
+
+# Cache directories
+.cache/
+node_modules/
+package-lock.json
+
+# Documentation
+/docs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log

@@ -1,0 +1,70 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Dark Theme Colors (Exact Figma Design) -->
+    <SolidColorBrush x:Key="Dark.Background" Color="#0e111b"/>
+    <SolidColorBrush x:Key="Dark.CardContainer.Background" Color="#151a28"/>
+    <SolidColorBrush x:Key="Dark.CardContainer.Border" Color="#292e3b"/>
+    <SolidColorBrush x:Key="Dark.Card.Background" Color="#22283c"/>
+    <SolidColorBrush x:Key="Dark.Card.Border" Color="#383e50"/>
+    <SolidColorBrush x:Key="Dark.GuestButton.Background" Color="#2d3348"/>
+    <SolidColorBrush x:Key="Dark.GuestButton.Border" Color="#404559"/>
+    <SolidColorBrush x:Key="Dark.Text.Primary" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Dark.Text.Secondary" Color="#AAAAAA"/>
+    
+    <!-- Dark Theme - Settings Colors -->
+    <SolidColorBrush x:Key="Dark.Settings.MainBg" Color="#1c2338"/>
+    <SolidColorBrush x:Key="Dark.Settings.MainBgOutline" Color="#38415b"/>
+    <SolidColorBrush x:Key="Dark.Settings.SelectedListViewBg" Color="#151a28"/>
+    <SolidColorBrush x:Key="Dark.Settings.UnselectedListViewBg" Color="Transparent"/>
+    <SolidColorBrush x:Key="Dark.Settings.PreviewBg" Color="#151a28"/>
+    <SolidColorBrush x:Key="Dark.Settings.PreviewOutline" Color="#151a28"/>
+    <SolidColorBrush x:Key="Dark.Settings.ThemeCardChecked" Color="#4a5471"/>
+    <SolidColorBrush x:Key="Dark.Settings.ThemeCardUnchecked" Color="#1b2132"/>
+    <SolidColorBrush x:Key="Dark.Settings.CloseBtnBg" Color="#151a28"/>
+
+    <!-- Light Theme Colors (Exact Figma Design) -->
+    <SolidColorBrush x:Key="Light.Background" Color="#efeae7"/>
+    <SolidColorBrush x:Key="Light.CardContainer.Background" Color="#f8f4f1"/>
+    <SolidColorBrush x:Key="Light.CardContainer.Border" Color="#cbcbcc"/>
+    <SolidColorBrush x:Key="Light.Card.Background" Color="#fbf9f7"/>
+    <SolidColorBrush x:Key="Light.Card.Border" Color="#e3e3e3"/>
+    <SolidColorBrush x:Key="Light.GuestButton.Background" Color="#fdfcfb"/>
+    <SolidColorBrush x:Key="Light.GuestButton.Border" Color="#dbdada"/>
+    <SolidColorBrush x:Key="Light.Text.Primary" Color="#000000"/>
+    <SolidColorBrush x:Key="Light.Text.Secondary" Color="#666666"/>
+    
+    <!-- Light Theme - Settings Colors -->
+    <SolidColorBrush x:Key="Light.Settings.MainBg" Color="#f8f4f1"/>
+    <SolidColorBrush x:Key="Light.Settings.MainBgOutline" Color="#9d9d9d"/>
+    <SolidColorBrush x:Key="Light.Settings.SelectedListViewBg" Color="#d1d1d1"/>
+    <SolidColorBrush x:Key="Light.Settings.UnselectedListViewBg" Color="Transparent"/>
+    <SolidColorBrush x:Key="Light.Settings.PreviewBg" Color="#ffffff"/>
+    <SolidColorBrush x:Key="Light.Settings.PreviewOutline" Color="#dddddd"/>
+    <SolidColorBrush x:Key="Light.Settings.ThemeCardChecked" Color="#ffd9bd"/>
+    <SolidColorBrush x:Key="Light.Settings.ThemeCardUnchecked" Color="#e5e5e5"/>
+    <SolidColorBrush x:Key="Light.Settings.CloseBtnBg" Color="#d1d1d1"/>
+
+    <!-- Default to Dark Theme (will be set dynamically) -->
+    <SolidColorBrush x:Key="Background" Color="#0e111b"/>
+    <SolidColorBrush x:Key="CardContainer.Background" Color="#151a28"/>
+    <SolidColorBrush x:Key="CardContainer.Border" Color="#292e3b"/>
+    <SolidColorBrush x:Key="Card.Background" Color="#22283c"/>
+    <SolidColorBrush x:Key="Card.Border" Color="#383e50"/>
+    <SolidColorBrush x:Key="GuestButton.Background" Color="#2d3348"/>
+    <SolidColorBrush x:Key="GuestButton.Border" Color="#404559"/>
+    <SolidColorBrush x:Key="Text.Primary" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Text.Secondary" Color="#AAAAAA"/>
+    
+    <!-- Settings Colors (Dynamic) -->
+    <SolidColorBrush x:Key="Settings.MainBg" Color="#1c2338"/>
+    <SolidColorBrush x:Key="Settings.MainBgOutline" Color="#38415b"/>
+    <SolidColorBrush x:Key="Settings.SelectedListViewBg" Color="#151a28"/>
+    <SolidColorBrush x:Key="Settings.UnselectedListViewBg" Color="Transparent"/>
+    <SolidColorBrush x:Key="Settings.PreviewBg" Color="#151a28"/>
+    <SolidColorBrush x:Key="Settings.PreviewOutline" Color="#151a28"/>
+    <SolidColorBrush x:Key="Settings.ThemeCardChecked" Color="#4a5471"/>
+    <SolidColorBrush x:Key="Settings.ThemeCardUnchecked" Color="#1b2132"/>
+    <SolidColorBrush x:Key="Settings.CloseBtnBg" Color="#151a28"/>
+
+</ResourceDictionary>
