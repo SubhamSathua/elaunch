@@ -83,6 +83,9 @@ namespace E_Launchpad.Views
             LoadIcons();
             LoadPrivacyPolicy();
             
+            // Set dynamic copyright year
+            CopyrightText.Text = $"© {DateTime.Now.Year} Code Craft";
+            
             // Set Theme button as selected by default
             SelectNavigationButton(ThemeButton);
             
