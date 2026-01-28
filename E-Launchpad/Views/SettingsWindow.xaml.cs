@@ -11,12 +11,68 @@ namespace E_Launchpad.Views
     public partial class SettingsWindow : Window
     {
         private string _currentTheme = "Dark"; // Will be synced with actual state
+        private System.Windows.Controls.Border? _selectedNavButton;
 
         public SettingsWindow()
         {
             InitializeComponent();
             
             Loaded += SettingsWindow_Loaded;
+            Closed += SettingsWindow_Closed;
+            
+            // Match owner window size when owner is set
+            SourceInitialized += SettingsWindow_SourceInitialized;
+            
+            // Subscribe to theme changes
+            ThemeManager.ThemeChanged += OnThemeChanged;
+        }
+
+        private void SettingsWindow_Closed(object? sender, EventArgs e)
+        {
+            // Unsubscribe from theme changes to prevent memory leaks
+            ThemeManager.ThemeChanged -= OnThemeChanged;
+        }
+
+        private void OnThemeChanged()
+        {
+            // Reload icons for the new theme
+            LoadIcons();
+            
+            // Refresh selected navigation button background
+            if (_selectedNavButton != null)
+            {
+                RefreshNavigationButtonStyles();
+            }
+            
+            // Update theme cards with new colors
+            SyncWithCurrentTheme();
+            UpdateThemeCards();
+        }
+
+        private void RefreshNavigationButtonStyles()
+        {
+            // Reset all buttons to unselected
+            ThemeButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            PrivacyButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            AboutButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            
+            // Re-apply selection to current selected button
+            if (_selectedNavButton != null)
+            {
+                _selectedNavButton.Background = (SolidColorBrush)FindResource("Settings.SelectedListViewBg");
+            }
+        }
+
+        private void SettingsWindow_SourceInitialized(object? sender, EventArgs e)
+        {
+            // Match the owner's size and position
+            if (Owner != null)
+            {
+                this.Left = Owner.Left;
+                this.Top = Owner.Top;
+                this.Width = Owner.ActualWidth;
+                this.Height = Owner.ActualHeight;
+            }
         }
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
@@ -121,6 +177,9 @@ namespace E_Launchpad.Views
             // Highlight selected button
             selectedButton.Background = (SolidColorBrush)FindResource("Settings.SelectedListViewBg");
             ((System.Windows.Controls.TextBlock)selectedButton.Child).FontWeight = FontWeights.SemiBold;
+            
+            // Track the selected button
+            _selectedNavButton = selectedButton;
         }
 
         private void ShowContent(System.Windows.Controls.StackPanel contentToShow)
