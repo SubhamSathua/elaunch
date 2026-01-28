@@ -89,6 +89,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource GuestButton.Hover}"/>
                     <Setter Property="Effect">
                         <Setter.Value>
                             <DropShadowEffect Color="{Binding Source={StaticResource GuestButton.Border}, Path=Color}" 

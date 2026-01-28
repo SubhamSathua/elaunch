@@ -38,6 +38,17 @@ namespace E_Launchpad
         {
             // Refresh icons when theme changes
             LoadThemeIcons();
+            
+            // Refresh the profiles ItemsControl to update add-profile icon
+            RefreshProfilesDisplay();
+        }
+
+        private void RefreshProfilesDisplay()
+        {
+            // Force the ItemsControl to re-evaluate its bindings by refreshing the ItemsSource
+            var currentItems = ProfilesItemsControl.ItemsSource;
+            ProfilesItemsControl.ItemsSource = null;
+            ProfilesItemsControl.ItemsSource = currentItems;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)

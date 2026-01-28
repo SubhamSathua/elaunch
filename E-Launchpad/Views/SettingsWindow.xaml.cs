@@ -38,6 +38,9 @@ namespace E_Launchpad.Views
             // Reload icons for the new theme
             LoadIcons();
             
+            // Refresh close button background
+            CloseButton.Background = (SolidColorBrush)FindResource("Settings.CloseBtnBg");
+            
             // Refresh selected navigation button background
             if (_selectedNavButton != null)
             {
@@ -91,8 +94,12 @@ namespace E_Launchpad.Views
         
         private void SyncWithCurrentTheme()
         {
-            // Check the actual theme state
-            if (ThemeManager.IsDarkMode)
+            // Check if system mode is active first
+            if (ThemeManager.IsSystemMode)
+            {
+                _currentTheme = "System";
+            }
+            else if (ThemeManager.IsDarkMode)
             {
                 _currentTheme = "Dark";
             }
@@ -255,6 +262,68 @@ namespace E_Launchpad.Views
                     NightThemeCard.Background = (SolidColorBrush)FindResource("Settings.ThemeCardChecked");
                     System.Diagnostics.Debug.WriteLine("Night card highlighted");
                     break;
+            }
+        }
+
+        // ===== HOVER EVENT HANDLERS =====
+
+        private void CloseButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            CloseButton.Background = (SolidColorBrush)FindResource("Settings.CloseBtnHover");
+        }
+
+        private void CloseButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseButton.Background = (SolidColorBrush)FindResource("Settings.CloseBtnBg");
+        }
+
+        private void NavButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Border;
+            if (button != null && button != _selectedNavButton)
+            {
+                button.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewHover");
+            }
+        }
+
+        private void NavButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Border;
+            if (button != null && button != _selectedNavButton)
+            {
+                button.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            }
+        }
+
+        private void ThemeCard_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var card = sender as System.Windows.Controls.Border;
+            if (card == null) return;
+
+            // Only apply hover if the card is not currently selected
+            bool isSelected = (card == SystemThemeCard && _currentTheme == "System") ||
+                             (card == DayThemeCard && _currentTheme == "Light") ||
+                             (card == NightThemeCard && _currentTheme == "Dark");
+
+            if (!isSelected)
+            {
+                card.Background = (SolidColorBrush)FindResource("Settings.ThemeCardUncheckedHover");
+            }
+        }
+
+        private void ThemeCard_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var card = sender as System.Windows.Controls.Border;
+            if (card == null) return;
+
+            // Only reset if the card is not currently selected
+            bool isSelected = (card == SystemThemeCard && _currentTheme == "System") ||
+                             (card == DayThemeCard && _currentTheme == "Light") ||
+                             (card == NightThemeCard && _currentTheme == "Dark");
+
+            if (!isSelected)
+            {
+                card.Background = (SolidColorBrush)FindResource("Settings.ThemeCardUnchecked");
             }
         }
     }

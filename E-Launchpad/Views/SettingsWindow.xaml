@@ -40,7 +40,9 @@
                         Margin="0,-15,-15,0"
                         Panel.ZIndex="100"
                         Cursor="Hand"
-                        MouseLeftButtonDown="CloseButton_Click">
+                        MouseLeftButtonDown="CloseButton_Click"
+                        MouseEnter="CloseButton_MouseEnter"
+                        MouseLeave="CloseButton_MouseLeave">
                     <Border.Effect>
                         <DropShadowEffect Color="#000000" Opacity="0.3" BlurRadius="10" ShadowDepth="2"/>
                     </Border.Effect>
@@ -70,7 +72,9 @@
                                     Padding="15,12"
                                     Margin="0,0,0,8"
                                     Cursor="Hand"
-                                    MouseLeftButtonDown="ThemeButton_Click">
+                                    MouseLeftButtonDown="ThemeButton_Click"
+                                    MouseEnter="NavButton_MouseEnter"
+                                    MouseLeave="NavButton_MouseLeave">
                                 <TextBlock Text="Theme"
                                            Foreground="{DynamicResource Text.Primary}"
                                            FontSize="14"
@@ -84,7 +88,9 @@
                                     Padding="15,12"
                                     Margin="0,0,0,8"
                                     Cursor="Hand"
-                                    MouseLeftButtonDown="PrivacyButton_Click">
+                                    MouseLeftButtonDown="PrivacyButton_Click"
+                                    MouseEnter="NavButton_MouseEnter"
+                                    MouseLeave="NavButton_MouseLeave">
                                 <TextBlock Text="Privacy Policy"
                                            Foreground="{DynamicResource Text.Primary}"
                                            FontSize="14"
@@ -97,7 +103,9 @@
                                     CornerRadius="10"
                                     Padding="15,12"
                                     Cursor="Hand"
-                                    MouseLeftButtonDown="AboutButton_Click">
+                                    MouseLeftButtonDown="AboutButton_Click"
+                                    MouseEnter="NavButton_MouseEnter"
+                                    MouseLeave="NavButton_MouseLeave">
                                 <TextBlock Text="About"
                                            Foreground="{DynamicResource Text.Primary}"
                                            FontSize="14"
@@ -141,7 +149,9 @@
                                             CornerRadius="20"
                                             Margin="0,0,15,0"
                                             Cursor="Hand"
-                                            MouseLeftButtonDown="SystemTheme_Click">
+                                            MouseLeftButtonDown="SystemTheme_Click"
+                                            MouseEnter="ThemeCard_MouseEnter"
+                                            MouseLeave="ThemeCard_MouseLeave">
                                         <StackPanel HorizontalAlignment="Center"
                                                     VerticalAlignment="Center">
                                             <Image x:Name="SystemThemeIcon"
@@ -168,7 +178,9 @@
                                             CornerRadius="20"
                                             Margin="0,0,15,0"
                                             Cursor="Hand"
-                                            MouseLeftButtonDown="DayTheme_Click">
+                                            MouseLeftButtonDown="DayTheme_Click"
+                                            MouseEnter="ThemeCard_MouseEnter"
+                                            MouseLeave="ThemeCard_MouseLeave">
                                         <StackPanel HorizontalAlignment="Center"
                                                     VerticalAlignment="Center">
                                             <Image x:Name="DayThemeIcon"
@@ -190,7 +202,9 @@
                                             Height="110"
                                             CornerRadius="20"
                                             Cursor="Hand"
-                                            MouseLeftButtonDown="NightTheme_Click">
+                                            MouseLeftButtonDown="NightTheme_Click"
+                                            MouseEnter="ThemeCard_MouseEnter"
+                                            MouseLeave="ThemeCard_MouseLeave">
                                         <StackPanel HorizontalAlignment="Center"
                                                     VerticalAlignment="Center">
                                             <Image x:Name="NightThemeIcon"
