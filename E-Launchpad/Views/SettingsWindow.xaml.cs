@@ -81,6 +81,7 @@ namespace E_Launchpad.Views
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
             LoadIcons();
+            LoadPrivacyPolicy();
             
             // Set Theme button as selected by default
             SelectNavigationButton(ThemeButton);
@@ -90,6 +91,28 @@ namespace E_Launchpad.Views
             
             // Update theme cards to reflect current state
             UpdateThemeCards();
+        }
+        
+        private void LoadPrivacyPolicy()
+        {
+            try
+            {
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string privacyPath = System.IO.Path.Combine(basePath, "Assets", "privacy-policy.txt");
+                
+                if (System.IO.File.Exists(privacyPath))
+                {
+                    PrivacyPolicyText.Text = System.IO.File.ReadAllText(privacyPath);
+                }
+                else
+                {
+                    PrivacyPolicyText.Text = "Privacy policy file not found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                PrivacyPolicyText.Text = $"Failed to load privacy policy: {ex.Message}";
+            }
         }
         
         private void SyncWithCurrentTheme()

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
@@ -9,6 +11,10 @@ namespace E_Launchpad.Services
     {
         private static bool _isDarkMode = true;
         private static bool _isSystemMode = false;
+        private static string _settingsPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "E-Launchpad",
+            "settings.json");
         
         public static event Action? ThemeChanged;
 
@@ -17,8 +23,72 @@ namespace E_Launchpad.Services
 
         public static void Initialize()
         {
-            // Load default dark theme
+            // Load saved theme or default to dark
+            LoadThemeSettings();
+        }
+        
+        private static void LoadThemeSettings()
+        {
+            try
+            {
+                if (File.Exists(_settingsPath))
+                {
+                    var json = File.ReadAllText(_settingsPath);
+                    var settings = JsonSerializer.Deserialize<ThemeSettings>(json);
+                    if (settings != null)
+                    {
+                        switch (settings.ThemeMode)
+                        {
+                            case "System":
+                                ApplySystemTheme();
+                                return;
+                            case "Light":
+                                ApplyLightTheme();
+                                return;
+                            case "Dark":
+                            default:
+                                ApplyDarkTheme();
+                                return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to load theme settings: {ex.Message}");
+            }
+            
+            // Default to dark theme
             ApplyDarkTheme();
+        }
+        
+        private static void SaveThemeSettings()
+        {
+            try
+            {
+                var directory = Path.GetDirectoryName(_settingsPath);
+                if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+                
+                var settings = new ThemeSettings
+                {
+                    ThemeMode = _isSystemMode ? "System" : (_isDarkMode ? "Dark" : "Light")
+                };
+                
+                var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(_settingsPath, json);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to save theme settings: {ex.Message}");
+            }
+        }
+        
+        private class ThemeSettings
+        {
+            public string ThemeMode { get; set; } = "Dark";
         }
 
         public static void ApplyDarkTheme()
@@ -58,6 +128,7 @@ namespace E_Launchpad.Services
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0x38, 0x40, 0x58));
 
             System.Diagnostics.Debug.WriteLine("Dark theme applied directly to resources");
+            SaveThemeSettings();
             ThemeChanged?.Invoke();
         }
 
@@ -98,6 +169,7 @@ namespace E_Launchpad.Services
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0xf0, 0xef, 0xee));
 
             System.Diagnostics.Debug.WriteLine("Light theme applied directly to resources");
+            SaveThemeSettings();
             ThemeChanged?.Invoke();
         }
 
@@ -142,6 +214,7 @@ namespace E_Launchpad.Services
             
             // Reset to system mode since ApplyDark/LightThemeColors sets it to false
             _isSystemMode = true;
+            SaveThemeSettings();
             ThemeChanged?.Invoke();
         }
         

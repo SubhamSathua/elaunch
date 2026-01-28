@@ -168,13 +168,12 @@
     </Window.Resources>
 
     <!-- Main Container with rounded card -->
-    <Border Background="{DynamicResource Background}" 
-            CornerRadius="20">
+    <Border Background="Transparent" 
+            CornerRadius="10">
         <Border Background="{DynamicResource CardContainer.Background}"
                 BorderBrush="{DynamicResource CardContainer.Border}"
                 BorderThickness="1"
-                CornerRadius="20"
-                Margin="20">
+                CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -378,10 +377,9 @@
                                                 
                                                 <!-- Add New Profile SVG Icon -->
                                                 <Image Source="{Binding IsAddNew, Converter={StaticResource AddProfileIconConverter}}" 
-                                                       Width="60" 
-                                                       Height="60" 
-                                                       HorizontalAlignment="Center" 
-                                                       VerticalAlignment="Center">
+                                                       Stretch="Uniform"
+                                                       HorizontalAlignment="Stretch" 
+                                                       VerticalAlignment="Stretch">
                                                     <Image.Style>
                                                         <Style TargetType="Image">
                                                             <Setter Property="Visibility" Value="Collapsed"/>

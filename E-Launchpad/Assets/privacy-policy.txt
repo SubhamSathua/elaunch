@@ -1,0 +1,31 @@
+Privacy Policy for E-Launchpad
+
+Last Updated: January 28, 2026
+
+1. INFORMATION WE COLLECT
+E-Launchpad does not collect, store, or transmit any personal data. All profile information is read locally from your Microsoft Edge browser installation.
+
+2. DATA STORAGE
+- Theme preferences are stored locally on your device in %AppData%\E-Launchpad\settings.json
+- No data is sent to external servers
+- No analytics or tracking is implemented
+
+3. THIRD-PARTY SERVICES
+This application does not integrate with any third-party services or APIs.
+
+4. EDGE PROFILE DATA
+E-Launchpad reads Edge profile information (profile names and icons) directly from your local Edge installation. This data is:
+- Never transmitted outside your device
+- Never stored by our application (read-only access)
+- Used solely to display profile selection options
+
+5. CHILDREN'S PRIVACY
+E-Launchpad does not collect any information from anyone, including children under 13 years of age.
+
+6. CHANGES TO THIS POLICY
+We may update this Privacy Policy from time to time. Any changes will be reflected in the "Last Updated" date above.
+
+7. CONTACT
+If you have questions about this Privacy Policy, please contact us through our official channels.
+
+© 2026 Code Craft. All rights reserved.
