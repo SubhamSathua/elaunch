@@ -82,9 +82,10 @@ namespace E_Launchpad.Views
         {
             LoadIcons();
             LoadPrivacyPolicy();
+            LoadAboutIcon();
             
             // Set dynamic copyright year
-            CopyrightText.Text = $"© {DateTime.Now.Year} Code Craft";
+            CopyrightText.Text = $"© {DateTime.Now.Year} E-Launchpad contributors";
             
             // Set Theme button as selected by default
             SelectNavigationButton(ThemeButton);
@@ -94,6 +95,48 @@ namespace E_Launchpad.Views
             
             // Update theme cards to reflect current state
             UpdateThemeCards();
+        }
+        
+        private void LoadAboutIcon()
+        {
+            try
+            {
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string iconPath = System.IO.Path.Combine(basePath, "Assets", "icon.png");
+                
+                if (System.IO.File.Exists(iconPath))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(iconPath, UriKind.Absolute);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    bitmap.Freeze();
+                    
+                    AboutAppIcon.Source = bitmap;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to load about icon: {ex.Message}");
+            }
+        }
+        
+        private void SourceCodeLink_Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://github.com/iSubhamMani/e-launchpad",
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to open link: {ex.Message}");
+            }
         }
         
         private void LoadPrivacyPolicy()

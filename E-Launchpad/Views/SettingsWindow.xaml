@@ -261,39 +261,94 @@
                             <!-- About Content -->
                             <StackPanel x:Name="AboutContent"
                                         Visibility="Collapsed">
-                                <TextBlock Text="About"
-                                           Foreground="{DynamicResource Text.Primary}"
-                                           FontSize="20"
-                                           FontWeight="SemiBold"
-                                           Margin="0,0,0,5"/>
-                                
-                                <Rectangle Height="1"
-                                           Fill="{DynamicResource Settings.MainBgOutline}"
-                                           Margin="0,0,0,15"/>
-                                
-                                <StackPanel>
-                                    <TextBlock Text="Edge Profile Launcher"
-                                               Foreground="{DynamicResource Text.Primary}"
-                                               FontSize="16"
-                                               FontWeight="SemiBold"
-                                               Margin="0,0,0,5"/>
-                                    <TextBlock Text="Version 1.0.0"
-                                               Foreground="{DynamicResource Text.Secondary}"
-                                               FontSize="13"
-                                               Margin="0,0,0,15"/>
-                                    
-                                    <TextBlock Text="A modern profile launcher for Microsoft Edge."
-                                               Foreground="{DynamicResource Text.Secondary}"
-                                               FontSize="13"
-                                               TextWrapping="Wrap"
-                                               LineHeight="20"
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              Height="230"
+                                              Style="{StaticResource CustomScrollViewer}">
+                                    <StackPanel>
+                                        <!-- App Icon -->
+                                        <Image x:Name="AboutAppIcon"
+                                               Width="64"
+                                               Height="64"
+                                               HorizontalAlignment="Center"
                                                Margin="0,0,0,10"/>
-                                    
-                                    <TextBlock x:Name="CopyrightText"
-                                               Foreground="{DynamicResource Text.Secondary}"
-                                               FontSize="12"
-                                               Margin="0,20,0,0"/>
-                                </StackPanel>
+                                        
+                                        <!-- App Name -->
+                                        <TextBlock Text="E Launchpad"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="18"
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,0,0,3"/>
+                                        
+                                        <!-- Version -->
+                                        <TextBlock Text="Version 1.1.0.7"
+                                                   Foreground="{DynamicResource Text.Secondary}"
+                                                   FontSize="11"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,0,0,5"/>
+                                        
+                                        <!-- Separator -->
+                                        <TextBlock Text="───"
+                                                   Foreground="{DynamicResource Text.Secondary}"
+                                                   FontSize="12"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,0,0,10"/>
+                                        
+                                        <!-- Description -->
+                                        <TextBlock Text="An open-source launcher for Microsoft Edge profiles on Windows."
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,0,0,20"/>
+                                        
+                                        <!-- Developer -->
+                                        <TextBlock Text="Developed by Subham Kumar Sathua"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,3"/>
+                                        
+                                        <!-- Copyright -->
+                                        <TextBlock x:Name="CopyrightText"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,15"/>
+                                        
+                                        <!-- Source Code -->
+                                        <TextBlock Text="Source Code:"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,3"/>
+                                        <TextBlock x:Name="SourceCodeLink"
+                                                   Text="https://github.com/subham-x"
+                                                   Foreground="#0078D4"
+                                                   FontSize="12"
+                                                   Cursor="Hand"
+                                                   TextDecorations="Underline"
+                                                   MouseLeftButtonDown="SourceCodeLink_Click"
+                                                   Margin="10,0,0,15"/>
+                                        
+                                        <!-- License -->
+                                        <TextBlock Text="License:"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,3"/>
+                                        <TextBlock Text="MIT License"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="10,0,0,15"/>
+                                        
+                                        <!-- Disclaimer -->
+                                        <TextBlock Text="Disclaimer:"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,3"/>
+                                        <TextBlock Text="E-Launchpad is an independent, third-party application. It is not affiliated with, endorsed by, or sponsored by Microsoft or Microsoft Edge."
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </ScrollViewer>
                             </StackPanel>
                         </Grid>
                     </Border>
