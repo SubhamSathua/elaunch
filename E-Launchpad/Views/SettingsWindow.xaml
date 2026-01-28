@@ -23,6 +23,24 @@
         <!-- Semi-transparent overlay covering entire window -->
         <Border Background="#80000000"/>
         
+        <!-- Toast Notification -->
+        <Border x:Name="ToastNotification"
+                Background="{DynamicResource Settings.SelectedListViewBg}"
+                BorderBrush="{DynamicResource Settings.MainBgOutline}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="15,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,50"
+                Opacity="0"
+                Panel.ZIndex="200">
+            <TextBlock x:Name="ToastText"
+                       Text="Copied!"
+                       Foreground="{DynamicResource Text.Primary}"
+                       FontSize="13"/>
+        </Border>
+        
         <!-- Main Settings Container - Centered -->
         <Border Background="{DynamicResource Settings.MainBg}"
                 BorderBrush="{DynamicResource Settings.MainBgOutline}"
@@ -84,6 +102,22 @@
                                            Foreground="{DynamicResource Text.Primary}"
                                            FontSize="14"
                                            FontWeight="SemiBold"/>
+                            </Border>
+                            
+                            <!-- Feedback Button -->
+                            <Border x:Name="FeedbackButton"
+                                    Background="{DynamicResource Settings.UnselectedListViewBg}"
+                                    CornerRadius="10"
+                                    Padding="15,12"
+                                    Margin="0,0,0,8"
+                                    Cursor="Hand"
+                                    MouseLeftButtonDown="FeedbackButton_Click"
+                                    MouseEnter="NavButton_MouseEnter"
+                                    MouseLeave="NavButton_MouseLeave">
+                                <TextBlock Text="Feedback"
+                                           Foreground="{DynamicResource Text.Primary}"
+                                           FontSize="14"
+                                           FontWeight="Normal"/>
                             </Border>
                             
                             <!-- Privacy Policy Button -->
@@ -312,6 +346,20 @@
                                                    Foreground="{DynamicResource Text.Primary}"
                                                    FontSize="12"
                                                    Margin="0,0,0,15"/>
+                                        
+                                        <!-- Contact Email -->
+                                        <TextBlock Text="Contact:"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="12"
+                                                   Margin="0,0,0,3"/>
+                                        <TextBlock x:Name="EmailLink"
+                                                   Text="subham@example.com"
+                                                   Foreground="#0078D4"
+                                                   FontSize="12"
+                                                   Cursor="Hand"
+                                                   TextDecorations="Underline"
+                                                   MouseLeftButtonDown="EmailLink_Click"
+                                                   Margin="10,0,0,15"/>
                                         
                                         <!-- Source Code -->
                                         <TextBlock Text="Source Code:"

@@ -56,6 +56,7 @@ namespace E_Launchpad.Views
         {
             // Reset all buttons to unselected
             ThemeButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            FeedbackButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             PrivacyButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             AboutButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             
@@ -226,6 +227,24 @@ namespace E_Launchpad.Views
             ShowContent(ThemeContent);
         }
 
+        private void FeedbackButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Open feedback form in default browser
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://tally.so/",
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to open feedback link: {ex.Message}");
+            }
+        }
+
         private void PrivacyButton_Click(object sender, MouseButtonEventArgs e)
         {
             SelectNavigationButton(PrivacyButton);
@@ -242,11 +261,13 @@ namespace E_Launchpad.Views
         {
             // Reset all buttons
             ThemeButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            FeedbackButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             PrivacyButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             AboutButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             
             // Set font weight to normal
             ((System.Windows.Controls.TextBlock)ThemeButton.Child).FontWeight = FontWeights.Normal;
+            ((System.Windows.Controls.TextBlock)FeedbackButton.Child).FontWeight = FontWeights.Normal;
             ((System.Windows.Controls.TextBlock)PrivacyButton.Child).FontWeight = FontWeights.Normal;
             ((System.Windows.Controls.TextBlock)AboutButton.Child).FontWeight = FontWeights.Normal;
             
@@ -394,6 +415,58 @@ namespace E_Launchpad.Views
             {
                 card.Background = (SolidColorBrush)FindResource("Settings.ThemeCardUnchecked");
             }
+        }
+
+        // ===== EMAIL AND TOAST HANDLERS =====
+
+        private void EmailLink_Click(object sender, MouseButtonEventArgs e)
+        {
+            string email = "subham@example.com";
+            
+            // Open mail app
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = $"mailto:{email}",
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to open mail app: {ex.Message}");
+            }
+            
+            // Copy email to clipboard
+            System.Windows.Clipboard.SetText(email);
+            
+            // Show toast notification
+            ShowToast("Email copied!");
+        }
+
+        private System.Windows.Threading.DispatcherTimer? _toastTimer;
+
+        private void ShowToast(string message)
+        {
+            ToastText.Text = message;
+            ToastNotification.Visibility = Visibility.Visible;
+            ToastNotification.Opacity = 1;
+            
+            // Cancel previous timer if exists
+            _toastTimer?.Stop();
+            
+            // Create timer to hide toast after 4 seconds
+            _toastTimer = new System.Windows.Threading.DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(4)
+            };
+            _toastTimer.Tick += (s, e) =>
+            {
+                _toastTimer.Stop();
+                ToastNotification.Visibility = Visibility.Collapsed;
+            };
+            _toastTimer.Start();
         }
     }
 }
