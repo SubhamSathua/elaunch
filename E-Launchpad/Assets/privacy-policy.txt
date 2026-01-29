@@ -105,9 +105,11 @@ Since E-Launchpad does not collect or transmit data:
 ================================================================================
 
 E-Launchpad does not collect any information from any users, including children 
-under 13 years of age. The Application is compliant with:
-- Children's Online Privacy Protection Act (COPPA)
-- General Data Protection Regulation (GDPR) provisions for minors
+under 13 years of age. Since no data is collected, stored, or transmitted:
+- No parental consent mechanisms are required
+- No age verification is performed or needed
+- The Application's privacy-preserving design is consistent with children's 
+  privacy protection principles
 
 ================================================================================
 8. USER RIGHTS
@@ -165,9 +167,9 @@ GitHub: https://github.com/Subham-x/E-Launchpad
 13. GOVERNING LAW
 ================================================================================
 
-This Privacy Policy shall be governed by and construed in accordance with 
-applicable laws. Any disputes shall be resolved in accordance with the terms 
-of the MIT License under which this software is distributed.
+This software is distributed under the MIT License. By using E-Launchpad, you 
+agree to the terms of the MIT License included below. The developer makes no 
+warranties and accepts no liability beyond what is stated in the MIT License.
 
 ================================================================================
 
