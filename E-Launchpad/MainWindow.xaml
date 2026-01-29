@@ -7,6 +7,7 @@
         xmlns:converters="clr-namespace:E_Launchpad.Converters"
         mc:Ignorable="d"
         Title="Edge Profile Launcher" 
+        Icon="Assets/icon.ico"
         Height="720" 
         Width="1000"
         WindowStartupLocation="CenterScreen"

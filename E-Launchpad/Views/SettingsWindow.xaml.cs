@@ -129,7 +129,7 @@ namespace E_Launchpad.Views
             {
                 var psi = new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = "https://github.com/iSubhamMani/e-launchpad",
+                    FileName = "https://github.com/Subham-x/E-Launchpad",
                     UseShellExecute = true
                 };
                 System.Diagnostics.Process.Start(psi);
@@ -234,7 +234,7 @@ namespace E_Launchpad.Views
             {
                 var psi = new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = "https://tally.so/",
+                    FileName = "https://tally.so/r/Np7aNW",
                     UseShellExecute = true
                 };
                 System.Diagnostics.Process.Start(psi);
@@ -421,7 +421,7 @@ namespace E_Launchpad.Views
 
         private void EmailLink_Click(object sender, MouseButtonEventArgs e)
         {
-            string email = "subham@example.com";
+            string email = "hyper.devstudio@protonmail.com";
             
             // Open mail app
             try

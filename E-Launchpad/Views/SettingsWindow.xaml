@@ -353,7 +353,7 @@
                                                    FontSize="12"
                                                    Margin="0,0,0,3"/>
                                         <TextBlock x:Name="EmailLink"
-                                                   Text="subham@example.com"
+                                                   Text="hyper.devstudio@protonmail.com"
                                                    Foreground="#0078D4"
                                                    FontSize="12"
                                                    Cursor="Hand"
@@ -367,7 +367,7 @@
                                                    FontSize="12"
                                                    Margin="0,0,0,3"/>
                                         <TextBlock x:Name="SourceCodeLink"
-                                                   Text="https://github.com/subham-x"
+                                                   Text="https://github.com/Subham-x/E-Launchpad"
                                                    Foreground="#0078D4"
                                                    FontSize="12"
                                                    Cursor="Hand"
