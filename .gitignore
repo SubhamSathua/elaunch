@@ -41,3 +41,4 @@ Thumbs.db
 
 # WebView2 runtime user data
 *.WebView2/
+publish/
