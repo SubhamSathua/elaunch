@@ -19,6 +19,9 @@
             <SolidColorBrush x:Key="GuestButton.Border" Color="#404559"/>
             <SolidColorBrush x:Key="Text.Primary" Color="#FFFFFF"/>
             <SolidColorBrush x:Key="Text.Secondary" Color="#AAAAAA"/>
+            <SolidColorBrush x:Key="DownloadButton.Text" Color="#151a28"/>
+            <SolidColorBrush x:Key="DownloadButton.Background" Color="#f1f5ff"/>
+            <SolidColorBrush x:Key="DownloadButton.Hover" Color="#d8e2ff"/>
             <SolidColorBrush x:Key="Settings.MainBg" Color="#1c2338"/>
             <SolidColorBrush x:Key="Settings.MainBgOutline" Color="#38415b"/>
             <SolidColorBrush x:Key="Settings.SelectedListViewBg" Color="#151a28"/>

@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using E_Launchpad.Models;
 using E_Launchpad.Utils;
+using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
 
 namespace E_Launchpad.Services
@@ -12,7 +13,7 @@ namespace E_Launchpad.Services
     public class ProfileService
     {
         private readonly string _edgeUserDataPath;
-        private readonly string _edgeExecutablePath;
+        private readonly string? _edgeExecutablePath;
 
         public ProfileService()
         {
@@ -25,11 +26,23 @@ namespace E_Launchpad.Services
         }
 
         /// <summary>
-        /// Finds the Edge executable path
+        /// True when the Microsoft Edge executable was found on this device.
         /// </summary>
-        private string FindEdgeExecutable()
+        public bool IsEdgeInstalled => !ForceNoEdge && !string.IsNullOrEmpty(_edgeExecutablePath);
+
+        /// <summary>
+        /// Test hook: launching with --no-edge hides the profiles UI as if Edge
+        /// were not installed (used to preview the "Download Edge" fallback).
+        /// </summary>
+        private static bool ForceNoEdge =>
+            Environment.GetCommandLineArgs().Any(a => a.Equals("--no-edge", StringComparison.OrdinalIgnoreCase));
+
+        /// <summary>
+        /// Finds the Edge executable path, or null when Edge is not installed.
+        /// </summary>
+        private static string? FindEdgeExecutable()
         {
-            // Try common locations
+            // Try common install locations
             string[] possiblePaths =
             {
                 @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
@@ -42,7 +55,47 @@ namespace E_Launchpad.Services
                     return path;
             }
 
-            return possiblePaths[0]; // Default to first path
+            // Fall back to the registry "App Paths" key (covers non-standard installs)
+            return FindEdgeExecutableFromRegistry();
+        }
+
+        private static string? FindEdgeExecutableFromRegistry()
+        {
+            string[] subKeys =
+            {
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe",
+                @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe"
+            };
+
+            foreach (string subKey in subKeys)
+            {
+                try
+                {
+                    using (var key = Registry.LocalMachine.OpenSubKey(subKey))
+                    {
+                        if (key != null && key.GetValue(null) is string path &&
+                            File.Exists(path))
+                        {
+                            return path;
+                        }
+                    }
+
+                    using (var key = Registry.CurrentUser.OpenSubKey(subKey))
+                    {
+                        if (key != null && key.GetValue(null) is string path &&
+                            File.Exists(path))
+                        {
+                            return path;
+                        }
+                    }
+                }
+                catch
+                {
+                    // Ignore registry access failures and try the next source
+                }
+            }
+
+            return null;
         }
 
         /// <summary>

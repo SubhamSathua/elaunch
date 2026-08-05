@@ -126,6 +126,9 @@ namespace E_Launchpad.Services
             resources["Settings.UnselectedListViewHover"] = new SolidColorBrush(Color.FromRgb(0x1a, 0x20, 0x30));
             resources["Settings.CloseBtnHover"] = new SolidColorBrush(Color.FromRgb(0x25, 0x2c, 0x42));
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0x38, 0x40, 0x58));
+            resources["DownloadButton.Text"] = new SolidColorBrush(Color.FromRgb(0x15, 0x1a, 0x28));
+            resources["DownloadButton.Background"] = new SolidColorBrush(Color.FromRgb(0xf1, 0xf5, 0xff));
+            resources["DownloadButton.Hover"] = new SolidColorBrush(Color.FromRgb(0xd8, 0xe2, 0xff));
 
             System.Diagnostics.Debug.WriteLine("Dark theme applied directly to resources");
             SaveThemeSettings();
@@ -167,6 +170,9 @@ namespace E_Launchpad.Services
             resources["Settings.UnselectedListViewHover"] = new SolidColorBrush(Color.FromRgb(0xe0, 0xe0, 0xe0));
             resources["Settings.CloseBtnHover"] = new SolidColorBrush(Color.FromRgb(0xc0, 0xc0, 0xc0));
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0xf0, 0xef, 0xee));
+            resources["DownloadButton.Text"] = new SolidColorBrush(Color.FromRgb(0xf8, 0xf4, 0xf2));
+            resources["DownloadButton.Background"] = new SolidColorBrush(Color.FromRgb(0x1a, 0x1a, 0x1a));
+            resources["DownloadButton.Hover"] = new SolidColorBrush(Color.FromRgb(0x3a, 0x3a, 0x3a));
 
             System.Diagnostics.Debug.WriteLine("Light theme applied directly to resources");
             SaveThemeSettings();
@@ -250,6 +256,9 @@ namespace E_Launchpad.Services
             resources["Settings.UnselectedListViewHover"] = new SolidColorBrush(Color.FromRgb(0x1a, 0x20, 0x30));
             resources["Settings.CloseBtnHover"] = new SolidColorBrush(Color.FromRgb(0x25, 0x2c, 0x42));
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0x38, 0x40, 0x58));
+            resources["DownloadButton.Text"] = new SolidColorBrush(Color.FromRgb(0x15, 0x1a, 0x28));
+            resources["DownloadButton.Background"] = new SolidColorBrush(Color.FromRgb(0xf1, 0xf5, 0xff));
+            resources["DownloadButton.Hover"] = new SolidColorBrush(Color.FromRgb(0xd8, 0xe2, 0xff));
         }
         
         private static void ApplyLightThemeColors()
@@ -284,6 +293,9 @@ namespace E_Launchpad.Services
             resources["Settings.UnselectedListViewHover"] = new SolidColorBrush(Color.FromRgb(0xe0, 0xe0, 0xe0));
             resources["Settings.CloseBtnHover"] = new SolidColorBrush(Color.FromRgb(0xc0, 0xc0, 0xc0));
             resources["GuestButton.Hover"] = new SolidColorBrush(Color.FromRgb(0xf0, 0xef, 0xee));
+            resources["DownloadButton.Text"] = new SolidColorBrush(Color.FromRgb(0xf8, 0xf4, 0xf2));
+            resources["DownloadButton.Background"] = new SolidColorBrush(Color.FromRgb(0x1a, 0x1a, 0x1a));
+            resources["DownloadButton.Hover"] = new SolidColorBrush(Color.FromRgb(0x3a, 0x3a, 0x3a));
         }
 
         public static string? GetIconPath(string iconName)

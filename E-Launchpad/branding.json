@@ -1,0 +1,11 @@
+{
+  "appName": "e_launchpad",
+  "appBrand": "E Launchpad",
+  "titlebarBranding": "E Launchpad Profile Launcher",
+  "homePageBranding": "Who's using E Launchpad?",
+  "homePageSubtitleBranding": "Select your profile to continue",
+  "guestModeBranding": "Browse as Guest",
+  "downloadMessageBranding": "Download Edge For Windows to use E-Launcher",
+  "downloadButtonBranding": "Download Edge For Windows",
+  "aboutDisclaimerBranding": "E Launchpad is an independent, third-party application. It is not affiliated with, endorsed by, or sponsored by Microsoft or Microsoft Edge."
+}

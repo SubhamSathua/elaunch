@@ -21,6 +21,10 @@
     <None Update="Assets\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <!-- Copy branding file to output -->
+    <None Update="branding.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <!-- Include icon as WPF resource -->
     <Resource Include="Assets\icon.ico" />
   </ItemGroup>

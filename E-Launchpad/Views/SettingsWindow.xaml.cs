@@ -86,7 +86,7 @@ namespace E_Launchpad.Views
             LoadAboutIcon();
             
             // Set dynamic copyright year
-            CopyrightText.Text = $"© {DateTime.Now.Year} E-Launchpad contributors";
+            CopyrightText.Text = $"© {DateTime.Now.Year} {Branding.AppBrand} contributors";
             
             // Set Theme button as selected by default
             SelectNavigationButton(ThemeButton);

@@ -63,8 +63,42 @@ namespace E_Launchpad
             LoadEdgeIcon();
             LoadSettingsIcon();
             LoadGuestIcon();
-            await LoadProfilesAsync();
+
+            if (_profileService.IsEdgeInstalled)
+            {
+                await LoadProfilesAsync();
+            }
+            else
+            {
+                ShowEdgeNotInstalledUI();
+            }
+
             UpdateRoundedClip();
+        }
+
+        private void ShowEdgeNotInstalledUI()
+        {
+            ProfilesScrollViewer.Visibility = Visibility.Collapsed;
+            GuestModePanel.Visibility = Visibility.Collapsed;
+            LoadingOverlay.Visibility = Visibility.Collapsed;
+            EdgeNotInstalledPanel.Visibility = Visibility.Visible;
+        }
+
+        private void DownloadEdgeButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://explore.microsoft.com/en-us/edge/download",
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to open Edge download page: {ex.Message}");
+            }
         }
 
         // Border CornerRadius does not clip children; clip the root to a rounded
