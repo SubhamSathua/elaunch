@@ -271,5 +271,67 @@ namespace E_Launchpad
                 DragMove();
             }
         }
+
+        // Opens the feedback page (Page 2) and loads the feedback form in WebView2.
+        // Falls back to the default browser when the WebView2 runtime is unavailable.
+        public async void OpenFeedbackPage()
+        {
+            if (IsWebView2RuntimeAvailable())
+            {
+                HomePage.Visibility = Visibility.Collapsed;
+                FeedbackPageView.Visibility = Visibility.Visible;
+
+                try
+                {
+                    await FeedbackWebView.EnsureCoreWebView2Async();
+                    FeedbackWebView.CoreWebView2.Navigate("https://tally.so/r/Np7aNW");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Failed to load feedback in WebView2: {ex.Message}");
+                    OpenFeedbackInDefaultBrowser();
+                }
+            }
+            else
+            {
+                OpenFeedbackInDefaultBrowser();
+            }
+        }
+
+        private void FeedbackBackButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            FeedbackPageView.Visibility = Visibility.Collapsed;
+            HomePage.Visibility = Visibility.Visible;
+        }
+
+        private void OpenFeedbackInDefaultBrowser()
+        {
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://tally.so/r/Np7aNW",
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to open feedback link: {ex.Message}");
+            }
+        }
+
+        private bool IsWebView2RuntimeAvailable()
+        {
+            try
+            {
+                var version = Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString();
+                return !string.IsNullOrEmpty(version);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

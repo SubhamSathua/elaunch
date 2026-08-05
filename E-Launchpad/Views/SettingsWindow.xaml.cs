@@ -229,20 +229,10 @@ namespace E_Launchpad.Views
 
         private void FeedbackButton_Click(object sender, MouseButtonEventArgs e)
         {
-            // Open feedback form in default browser
-            try
-            {
-                var psi = new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = "https://tally.so/r/Np7aNW",
-                    UseShellExecute = true
-                };
-                System.Diagnostics.Process.Start(psi);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Failed to open feedback link: {ex.Message}");
-            }
+            // Close the settings popup and open the feedback page in the main window.
+            var mainWindow = Owner as MainWindow;
+            Close();
+            mainWindow?.OpenFeedbackPage();
         }
 
         private void PrivacyButton_Click(object sender, MouseButtonEventArgs e)

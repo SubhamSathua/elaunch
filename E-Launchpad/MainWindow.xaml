@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_Launchpad"
         xmlns:converters="clr-namespace:E_Launchpad.Converters"
+        xmlns:utils="clr-namespace:E_Launchpad.Utils"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         mc:Ignorable="d"
         Title="Edge Profile Launcher" 
         Icon="Assets/icon.ico"
@@ -169,12 +171,14 @@
     </Window.Resources>
 
     <!-- Main Container with rounded card -->
-    <Border Background="Transparent" 
-            CornerRadius="10">
-        <Border Background="{DynamicResource CardContainer.Background}"
-                BorderBrush="{DynamicResource CardContainer.Border}"
-                BorderThickness="1"
+    <Grid>
+        <Border x:Name="HomePage"
+                Background="Transparent" 
                 CornerRadius="10">
+            <Border Background="{DynamicResource CardContainer.Background}"
+                    BorderBrush="{DynamicResource CardContainer.Border}"
+                    BorderThickness="1"
+                    CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -271,6 +275,7 @@
                 <!-- Profiles Grid with Custom Scrollbar -->
                 <ScrollViewer Grid.Row="2" 
                               Style="{StaticResource CustomScrollViewer}"
+                              utils:ScrollWheelHelper.Sensitivity="0.5"
                               VerticalScrollBarVisibility="Auto" 
                               HorizontalScrollBarVisibility="Disabled"
                               Margin="20,10,20,10">
@@ -445,5 +450,82 @@
                 </Grid>
             </Grid>
         </Border>
-    </Border>
+        </Border>
+
+        <!-- Page 2: Feedback (WebView2) -->
+        <Grid x:Name="FeedbackPageView" Visibility="Collapsed">
+            <Border Background="{DynamicResource CardContainer.Background}"
+                    BorderBrush="{DynamicResource CardContainer.Border}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Feedback Title Bar -->
+                    <Grid Grid.Row="0"
+                          Height="48"
+                          Background="{DynamicResource Card.Background}"
+                          MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Back Button -->
+                        <Border Grid.Column="0"
+                                Style="{StaticResource SettingsButtonStyle}"
+                                Margin="12,0,0,0"
+                                VerticalAlignment="Center"
+                                MouseLeftButtonDown="FeedbackBackButton_Click">
+                            <TextBlock Text="←" 
+                                       Foreground="{DynamicResource Text.Primary}"
+                                       FontSize="18"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- Title -->
+                        <TextBlock Grid.Column="1"
+                                   Text="Feedback"
+                                   Foreground="{DynamicResource Text.Primary}"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                        <!-- Window Control Buttons -->
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <Border Style="{StaticResource TitleBarButtonStyle}"
+                                    MouseLeftButtonDown="MinimizeButton_Click">
+                                <TextBlock Text="─" 
+                                           Foreground="{DynamicResource Text.Primary}"
+                                           FontSize="14"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center"
+                                           Margin="0,-4,0,0"/>
+                            </Border>
+                            <Border Style="{StaticResource CloseButtonStyle}"
+                                    MouseLeftButtonDown="CloseButton_Click">
+                                <TextBlock Text="✕" 
+                                           Foreground="{DynamicResource Text.Primary}"
+                                           FontSize="14"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- WebView2 -->
+                    <wv2:WebView2 x:Name="FeedbackWebView"
+                                  Grid.Row="1"
+                                  Margin="1,0,1,1"
+                                  DefaultBackgroundColor="White"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
 </Window>
