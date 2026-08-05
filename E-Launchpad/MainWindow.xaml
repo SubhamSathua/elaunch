@@ -551,9 +551,10 @@
                             <Border Style="{StaticResource FeedbackCloseButtonStyle}"
                                     MouseLeftButtonDown="CloseButton_Click">
                                 <Viewbox Stretch="Uniform"
+                                         Height="20"
+                                         Width="20"
                                          HorizontalAlignment="Center"
-                                         VerticalAlignment="Stretch"
-                                         Margin="4">
+                                         VerticalAlignment="Center">
                                     <TextBlock Text="✕" 
                                                Foreground="{DynamicResource Text.Primary}"
                                                FontSize="14"

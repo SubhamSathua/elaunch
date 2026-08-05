@@ -22,7 +22,7 @@
     <!-- Full Screen Overlay Background -->
     <Grid>
         <!-- Semi-transparent overlay covering entire window -->
-        <Border Background="#80000000"/>
+        <Border Background="#80000000" CornerRadius="10"/>
         
         <!-- Toast Notification -->
         <Border x:Name="ToastNotification"
