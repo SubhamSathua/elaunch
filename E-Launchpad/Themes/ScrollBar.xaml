@@ -3,7 +3,7 @@
 
     <!-- Custom Rounded Scrollbar Style -->
     <Style x:Key="CustomScrollBarThumb" TargetType="{x:Type Thumb}">
-        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="MinHeight" Value="40"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
@@ -46,15 +46,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                    <Grid>
+                    <Grid Background="{TemplateBinding Background}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <ScrollContentPresenter Grid.Column="0"/>
+                        <ScrollContentPresenter Grid.Column="0"
+                                                Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                CanContentScroll="{TemplateBinding CanContentScroll}"/>
                         <ScrollBar x:Name="PART_VerticalScrollBar"
                                    Grid.Column="1"
                                    Style="{StaticResource CustomScrollBar}"
+                                   Orientation="Vertical"
+                                   Minimum="0"
                                    Maximum="{TemplateBinding ScrollableHeight}"
                                    ViewportSize="{TemplateBinding ViewportHeight}"
                                    Value="{TemplateBinding VerticalOffset}"
