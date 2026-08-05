@@ -115,60 +115,32 @@ namespace E_Launchpad
 
         private void LoadEdgeIcon()
         {
-            // Try to extract Edge icon from executable
-            string[] possiblePaths =
-            {
-                @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-                @"C:\Program Files\Microsoft\Edge\Application\msedge.exe"
-            };
-
-            foreach (var path in possiblePaths)
-            {
-                if (File.Exists(path))
-                {
-                    try
-                    {
-                        var icon = ExeIconExtractor.ExtractIconFromExe(path);
-                        if (icon != null)
-                        {
-                            EdgeIconImage.Source = icon;
-                            System.Diagnostics.Debug.WriteLine($"Edge icon extracted successfully from {path}");
-                            return;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"Failed to extract Edge icon from {path}: {ex.Message}");
-                    }
-                }
-            }
-
-            // Fallback: Use default Edge icon
+            // Use the app's own icon on the home screen
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string fallbackIconPath = System.IO.Path.Combine(basePath, "Assets", "Icons", "edge-fallback.svg");
-            
-            if (File.Exists(fallbackIconPath))
+            string iconPath = System.IO.Path.Combine(basePath, "Assets", "icon.png");
+
+            if (File.Exists(iconPath))
             {
                 try
                 {
                     var bitmap = new BitmapImage();
                     bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(fallbackIconPath, UriKind.Absolute);
+                    bitmap.UriSource = new Uri(iconPath, UriKind.Absolute);
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
                     bitmap.Freeze();
-                    
+
                     EdgeIconImage.Source = bitmap;
-                    System.Diagnostics.Debug.WriteLine("Using fallback Edge icon");
+                    System.Diagnostics.Debug.WriteLine("Loaded app icon for home screen");
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Failed to load fallback Edge icon: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"Failed to load app icon: {ex.Message}");
                 }
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("No Edge icon available (exe not found and fallback missing)");
+                System.Diagnostics.Debug.WriteLine("App icon not found");
             }
         }
 

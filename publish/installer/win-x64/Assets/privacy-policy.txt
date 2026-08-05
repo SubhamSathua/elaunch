@@ -3,9 +3,7 @@ PRIVACY POLICY FOR E-LAUNCHPAD
 Effective Date: January 29, 2026
 Last Updated: January 29, 2026
 
-================================================================================
 INTRODUCTION
-================================================================================
 
 E-Launchpad ("the Application," "we," "our," or "us") is an open-source desktop 
 application developed by Subham Kumar Sathua. This Privacy Policy explains how 
@@ -14,9 +12,7 @@ the Application handles information when you use it.
 By using E-Launchpad, you acknowledge that you have read and understood this 
 Privacy Policy.
 
-================================================================================
 IMPORTANT DISCLAIMER
-================================================================================
 
 E-Launchpad is an INDEPENDENT, THIRD-PARTY, OPEN-SOURCE application.
 
@@ -26,10 +22,7 @@ E-Launchpad is an INDEPENDENT, THIRD-PARTY, OPEN-SOURCE application.
   Corporation.
 - This software is provided under the MIT License and is community-developed.
 
-================================================================================
 1. INFORMATION WE COLLECT
-================================================================================
-
 E-Launchpad does NOT collect, transmit, or store any personal data.
 
 The Application operates entirely offline and locally on your device. We do not:
@@ -40,10 +33,7 @@ The Application operates entirely offline and locally on your device. We do not:
 - Send any data to external servers
 - Integrate with advertising networks
 
-================================================================================
 2. LOCAL DATA ACCESS
-================================================================================
-
 E-Launchpad accesses the following data stored locally on your device:
 
 A. MICROSOFT EDGE PROFILE DATA (Read-Only)
@@ -63,10 +53,7 @@ B. APPLICATION SETTINGS
    - This file is stored locally on your device only
    - You may delete this file at any time without affecting your system
 
-================================================================================
 3. DATA STORAGE
-================================================================================
-
 All data used by E-Launchpad remains on your local device:
 
 - No cloud storage is used
@@ -74,36 +61,24 @@ All data used by E-Launchpad remains on your local device:
 - No network connections are required for the Application to function
 - No data synchronization occurs
 
-================================================================================
 4. THIRD-PARTY SERVICES
-================================================================================
-
 E-Launchpad does NOT integrate with any third-party services, APIs, SDKs, or 
 analytics platforms.
 
 The Application is completely self-contained and does not communicate with any 
 external services.
 
-================================================================================
 5. DATA SHARING
-================================================================================
-
 We do NOT share, sell, rent, or trade any user data with third parties because 
 we do not collect any data.
 
-================================================================================
 6. DATA SECURITY
-================================================================================
-
 Since E-Launchpad does not collect or transmit data:
 - There is no risk of data breach from our servers (we have none)
 - All information remains under your control on your local device
 - Your Microsoft Edge profile data is accessed read-only
 
-================================================================================
 7. CHILDREN'S PRIVACY
-================================================================================
-
 E-Launchpad does not collect any information from any users, including children 
 under 13 years of age. Since no data is collected, stored, or transmitted:
 - No parental consent mechanisms are required
@@ -111,10 +86,7 @@ under 13 years of age. Since no data is collected, stored, or transmitted:
 - The Application's privacy-preserving design is consistent with children's 
   privacy protection principles
 
-================================================================================
 8. USER RIGHTS
-================================================================================
-
 Since no personal data is collected, stored, or processed by E-Launchpad:
 
 - There is no personal data to access, correct, or delete
@@ -124,20 +96,14 @@ Since no personal data is collected, stored, or processed by E-Launchpad:
 Under GDPR, CCPA, and other privacy regulations, you retain all rights to your 
 data, which remains entirely on your device.
 
-================================================================================
 9. OPEN-SOURCE TRANSPARENCY
-================================================================================
-
 E-Launchpad is open-source software licensed under the MIT License.
 
 - Source Code: https://github.com/Subham-x/E-Launchpad
 - You may inspect, audit, modify, and distribute the source code
 - The codebase is publicly available for verification of these privacy claims
 
-================================================================================
 10. CHANGES TO THIS PRIVACY POLICY
-================================================================================
-
 We may update this Privacy Policy from time to time. Changes will be:
 - Reflected in the "Last Updated" date at the top of this document
 - Published in the Application and on the GitHub repository
@@ -145,33 +111,23 @@ We may update this Privacy Policy from time to time. Changes will be:
 Continued use of E-Launchpad after changes constitutes acceptance of the 
 updated Privacy Policy.
 
-================================================================================
 11. LIMITATION OF LIABILITY
-================================================================================
-
 E-Launchpad is provided "AS IS" without warranty of any kind, express or 
 implied. The developer shall not be liable for any damages arising from the 
 use of this Application. See the MIT License for full terms.
 
-================================================================================
 12. CONTACT INFORMATION
-================================================================================
-
 For questions, concerns, or requests regarding this Privacy Policy:
 
 Developer: Subham Kumar Sathua
 Email: hyper.devstudio@protonmail.com
 GitHub: https://github.com/Subham-x/E-Launchpad
 
-================================================================================
 13. GOVERNING LAW
-================================================================================
-
 This software is distributed under the MIT License. By using E-Launchpad, you 
 agree to the terms of the MIT License included below. The developer makes no 
 warranties and accepts no liability beyond what is stated in the MIT License.
 
-================================================================================
 
 MIT License
 
@@ -195,4 +151,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-================================================================================
