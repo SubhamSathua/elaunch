@@ -64,6 +64,16 @@ namespace E_Launchpad
             LoadSettingsIcon();
             LoadGuestIcon();
             await LoadProfilesAsync();
+            UpdateRoundedClip();
+        }
+
+        // Border CornerRadius does not clip children; clip the root to a rounded
+        // rectangle so window control buttons don't paint over the rounded corners.
+        private void UpdateRoundedClip()
+        {
+            if (RootContainer.ActualWidth <= 0 || RootContainer.ActualHeight <= 0) return;
+            RootContainer.Clip = new RectangleGeometry(
+                new Rect(0, 0, RootContainer.ActualWidth, RootContainer.ActualHeight), 10, 10);
         }
 
         private void LoadSettingsIcon()

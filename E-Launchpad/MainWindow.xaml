@@ -152,6 +152,46 @@
             </Style.Triggers>
         </Style>
 
+        <!-- Back Button Style (compact, feedback page) -->
+        <Style x:Key="BackButtonStyle" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource Card.Background}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Card.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Padding" Value="14,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource GuestButton.Background}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource GuestButton.Border}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Feedback page title bar buttons (fill 48px bar height) -->
+        <Style x:Key="FeedbackTitleBarButtonStyle" TargetType="Border">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="46"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource GuestButton.Background}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="FeedbackCloseButtonStyle" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource Settings.CloseBtnBg}"/>
+            <Setter Property="Width" Value="46"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E81123"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Profile Name Style -->
         <Style x:Key="ProfileNameStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource Text.Primary}"/>
@@ -171,7 +211,7 @@
     </Window.Resources>
 
     <!-- Main Container with rounded card -->
-    <Grid>
+    <Grid x:Name="RootContainer">
         <Border x:Name="HomePage"
                 Background="Transparent" 
                 CornerRadius="10">
@@ -477,13 +517,13 @@
 
                         <!-- Back Button -->
                         <Border Grid.Column="0"
-                                Style="{StaticResource SettingsButtonStyle}"
+                                Style="{StaticResource BackButtonStyle}"
                                 Margin="12,0,0,0"
-                                VerticalAlignment="Center"
                                 MouseLeftButtonDown="FeedbackBackButton_Click">
-                            <TextBlock Text="←" 
+                            <TextBlock Text="Back"
                                        Foreground="{DynamicResource Text.Primary}"
-                                       FontSize="18"
+                                       FontSize="13"
+                                       FontWeight="SemiBold"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
                         </Border>
@@ -499,7 +539,7 @@
 
                         <!-- Window Control Buttons -->
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <Border Style="{StaticResource TitleBarButtonStyle}"
+                            <Border Style="{StaticResource FeedbackTitleBarButtonStyle}"
                                     MouseLeftButtonDown="MinimizeButton_Click">
                                 <TextBlock Text="─" 
                                            Foreground="{DynamicResource Text.Primary}"
@@ -508,13 +548,18 @@
                                            VerticalAlignment="Center"
                                            Margin="0,-4,0,0"/>
                             </Border>
-                            <Border Style="{StaticResource CloseButtonStyle}"
+                            <Border Style="{StaticResource FeedbackCloseButtonStyle}"
                                     MouseLeftButtonDown="CloseButton_Click">
-                                <TextBlock Text="✕" 
-                                           Foreground="{DynamicResource Text.Primary}"
-                                           FontSize="14"
-                                           HorizontalAlignment="Center" 
-                                           VerticalAlignment="Center"/>
+                                <Viewbox Stretch="Uniform"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Stretch"
+                                         Margin="4">
+                                    <TextBlock Text="✕" 
+                                               Foreground="{DynamicResource Text.Primary}"
+                                               FontSize="14"
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"/>
+                                </Viewbox>
                             </Border>
                         </StackPanel>
                     </Grid>
