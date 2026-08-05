@@ -12,6 +12,7 @@ using E_Launchpad.Models;
 using E_Launchpad.Services;
 using E_Launchpad.Utils;
 using System.IO;
+using System.ComponentModel;
 
 namespace E_Launchpad
 {
@@ -32,6 +33,12 @@ namespace E_Launchpad
             ThemeManager.ThemeChanged += OnThemeChanged;
             
             Loaded += MainWindow_Loaded;
+            Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object? sender, CancelEventArgs e)
+        {
+            DisposeFeedbackWebView();
         }
 
         private void OnThemeChanged()
@@ -302,6 +309,23 @@ namespace E_Launchpad
         {
             FeedbackPageView.Visibility = Visibility.Collapsed;
             HomePage.Visibility = Visibility.Visible;
+            DisposeFeedbackWebView();
+        }
+
+        // Releases the WebView2 controller and its browser processes.
+        // Collapsing the control only hides its HWND; Dispose() is required to
+        // stop msedgewebview2.exe children running in the background.
+        private void DisposeFeedbackWebView()
+        {
+            try
+            {
+                FeedbackWebView.CoreWebView2?.Stop();
+                FeedbackWebView.Dispose();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to dispose WebView2: {ex.Message}");
+            }
         }
 
         private void OpenFeedbackInDefaultBrowser()
