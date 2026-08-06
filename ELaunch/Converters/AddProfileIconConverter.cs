@@ -3,9 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using E_Launchpad.Services;
+using ELaunch.Services;
 
-namespace E_Launchpad.Converters
+namespace ELaunch.Converters
 {
     /// <summary>
     /// Converts IsAddNew boolean to the appropriate add profile icon path

@@ -7,10 +7,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using System.Text.Json;
-using E_Launchpad.Models;
-using E_Launchpad.Services;
+using ELaunch.Models;
+using ELaunch.Services;
 
-namespace E_Launchpad.Views
+namespace ELaunch.Views
 {
     public partial class SettingsWindow : Window
     {

@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace E_Launchpad.Converters
+namespace ELaunch.Converters
 {
     /// <summary>
     /// Converts null values to Visibility

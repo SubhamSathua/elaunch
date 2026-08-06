@@ -1,7 +1,7 @@
-# E Launchpad
+# ELaunch
 
 **Launch Microsoft Edge profiles in one click.**
-ELaunch is, open-source profile launcher for Microsoft Edge on Windows.
+ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
 
 **Why ELaunch?**
 - Switching Edge profiles manually takes too many steps: opening the browser, clicking your avatar, and selecting a profile from the dropdown menu.
@@ -39,11 +39,11 @@ ELaunch is, open-source profile launcher for Microsoft Edge on Windows.
 > **Download:** [Get the latest release here](https://github.com/SubhamSathua/elaunch/releases)
 
 1.  **Download & Extract:** Unzip the latest release into a permanent folder on your PC.
-2.  **Run:** Double-click `E-Launchpad.exe` to open the launcher.
+2.  **Run:** Double-click `ELaunch.exe` to open the launcher.
 3.  **Pick a profile:** Select the Microsoft Edge profile you want to open — or choose "Browse as Guest".
 4.  **Enjoy:** Your chosen profile opens in Microsoft Edge right away.
 
-> **CAUTION:** E Launchpad requires Microsoft Edge to be installed on your PC. If it's missing, the app shows a download button that links to the official Microsoft Edge download page.
+> **CAUTION:** ELaunch requires Microsoft Edge to be installed on your PC. If it's missing, the app shows a download button that links to the official Microsoft Edge download page.
 
 ---
 
@@ -53,20 +53,20 @@ We welcome contributions! Follow these steps to set up your local development en
 1.  **Clone the Repo:** `https://github.com/SubhamSathua/elaunch.git`
 2.  **Build:** Open a terminal in the project folder and run:
     ```bash
-    dotnet build E-Launchpad\E-Launchpad.csproj
+    dotnet build ELaunch\ELaunch.csproj
     ```
 3.  **Run:**
     ```bash
-    dotnet run --project E-Launchpad\E-Launchpad.csproj
+    dotnet run --project ELaunch\ELaunch.csproj
     ```
     Or build then launch the exe directly:
     ```bash
-    dotnet build E-Launchpad\E-Launchpad.csproj; & "E-Launchpad\bin\Debug\net8.0-windows\E-Launchpad.exe"
+    dotnet build ELaunch\ELaunch.csproj; & "ELaunch\bin\Debug\net8.0-windows\ELaunch.exe"
     ```
 4.  **Publish** (optional) — portable or self-contained builds:
     ```bash
-    dotnet publish E-Launchpad\E-Launchpad.csproj -c Release -r win-x64 --self-contained false -o publish\portable\win-x64
-    dotnet publish E-Launchpad\E-Launchpad.csproj -c Release -r win-x64 --self-contained true -o publish\installer\win-x64
+    dotnet publish ELaunch\ELaunch.csproj -c Release -r win-x64 --self-contained false -o publish\portable\win-x64
+    dotnet publish ELaunch\ELaunch.csproj -c Release -r win-x64 --self-contained true -o publish\installer\win-x64
     ```
 
 ---
@@ -80,8 +80,8 @@ We welcome contributions! Follow these steps to set up your local development en
 ---
 
 ## # Troubleshooting
-- **"Download Edge For Windows" screen:** Microsoft Edge is not installed — click the button to install it from the official Microsoft page, then restart E Launchpad.
-- **Profile not listed:** E Launchpad reads profiles from your local Microsoft Edge installation; make sure Edge is installed and you have created at least one profile.
+- **"Download Edge For Windows" screen:** Microsoft Edge is not installed — click the button to install it from the official Microsoft page, then restart ELaunch.
+- **Profile not listed:** ELaunch reads profiles from your local Microsoft Edge installation; make sure Edge is installed and you have created at least one profile.
 - **Profile won't launch:** Make sure Edge is set as a default and your profile data isn't corrupted — try opening the same profile directly in Edge first.
 
 ---
@@ -104,7 +104,7 @@ This project is licensed under the **Apache License 2.0**.
 - **100% Local:** All profile reading and launching happens strictly on your device.
 - **No Internet Required:** The app does not send any data to external servers or the cloud.
 - **No Tracking:** Zero telemetry, zero analytics, and zero background tracking services.
-- **Read-Only:** Local Microsoft Edge profile names and avatars are read locally and never transmitted, stored, or cached by E Launchpad.
+- **Read-Only:** Local Microsoft Edge profile names and avatars are read locally and never transmitted, stored, or cached by ELaunch.
 
 ---
 

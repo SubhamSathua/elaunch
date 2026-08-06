@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
 
-namespace E_Launchpad.Services
+namespace ELaunch.Services
 {
     public static class ThemeManager
     {
@@ -13,7 +13,7 @@ namespace E_Launchpad.Services
         private static bool _isSystemMode = false;
         private static string _settingsPath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "E-Launchpad",
+            "ELaunch",
             "settings.json");
         
         public static event Action? ThemeChanged;

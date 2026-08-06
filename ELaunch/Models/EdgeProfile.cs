@@ -1,6 +1,6 @@
 using System.Windows.Media.Imaging;
 
-namespace E_Launchpad.Models
+namespace ELaunch.Models
 {
     /// <summary>
     /// Represents an Edge browser profile

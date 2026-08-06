@@ -2,7 +2,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace E_Launchpad.Utils
+namespace ELaunch.Utils
 {
     /// <summary>
     /// Utility class to extract icons from .ico files

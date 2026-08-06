@@ -8,13 +8,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using E_Launchpad.Models;
-using E_Launchpad.Services;
-using E_Launchpad.Utils;
+using ELaunch.Models;
+using ELaunch.Services;
+using ELaunch.Utils;
 using System.IO;
 using System.ComponentModel;
 
-namespace E_Launchpad
+namespace ELaunch
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

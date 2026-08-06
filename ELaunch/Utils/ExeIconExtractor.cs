@@ -2,7 +2,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Imaging;
 
-namespace E_Launchpad.Utils
+namespace ELaunch.Utils
 {
     /// <summary>
     /// Extracts icons from executable files

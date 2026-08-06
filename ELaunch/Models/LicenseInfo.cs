@@ -1,4 +1,4 @@
-namespace E_Launchpad.Models
+namespace ELaunch.Models
 {
     /// <summary>
     /// Represents an open-source license entry from the license manifest.

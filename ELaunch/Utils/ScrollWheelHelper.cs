@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace E_Launchpad.Utils
+namespace ELaunch.Utils
 {
     /// <summary>
     /// Reduces the mouse wheel scroll sensitivity of a ScrollViewer.

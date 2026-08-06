@@ -1,11 +1,11 @@
 using System.Diagnostics;
 using System.IO;
-using E_Launchpad.Models;
-using E_Launchpad.Utils;
+using ELaunch.Models;
+using ELaunch.Utils;
 using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
 
-namespace E_Launchpad.Services
+namespace ELaunch.Services
 {
     /// <summary>
     /// Service for managing Edge browser profiles

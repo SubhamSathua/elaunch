@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.6.11806.211
 MinimumVisualStudioVersion = 17.0.31903.15
-Project("{978C614F-708E-4E1A-B201-565925725DBA}") = "E-Launchpad-SelfContained", "installer\E-Launchpad-SelfContained.vdproj", "{00000000-0000-0000-0000-000000000001}"
+Project("{978C614F-708E-4E1A-B201-565925725DBA}") = "ELaunch-SelfContained", "installer\ELaunch-SelfContained.vdproj", "{00000000-0000-0000-0000-000000000001}"
 EndProject
-Project("{978C614F-708E-4E1A-B201-565925725DBA}") = "E-Launchpad-Portable", "installer\E-Launchpad-Portable.vdproj", "{00000000-0000-0000-0000-000000000002}"
+Project("{978C614F-708E-4E1A-B201-565925725DBA}") = "ELaunch-Portable", "installer\ELaunch-Portable.vdproj", "{00000000-0000-0000-0000-000000000002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

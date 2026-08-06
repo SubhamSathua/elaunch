@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-The following versions of E Launchpad are currently being supported with security updates:
+The following versions of ELaunch are currently being supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -20,7 +20,7 @@ We will acknowledge your report and attempt to fix the issue as soon as possible
 
 The author of this project only provides source code and official releases through authorized channels (e.g., this GitHub repository).
 
-- **Official Builds:** Only releases published directly by the original maintainer are official "E Launchpad" products.
+- **Official Builds:** Only releases published directly by the original maintainer are official "ELaunch" products.
 - **Third-Party Distributions:** We are **not responsible** for versions of this software downloaded from other websites, forums, or third-party collections.
 - **Modified Versions:** If you download a version that has been modified by someone else, you do so at your own risk.
 

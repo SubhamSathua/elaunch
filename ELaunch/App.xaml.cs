@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace E_Launchpad
+namespace ELaunch
 {
     /// <summary>
     /// Interaction logic for App.xaml
