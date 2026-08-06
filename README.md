@@ -1,11 +1,11 @@
 # ELaunch
 
 <p align="center">
-  <img src="assets/icon.ico" alt="ELaunch Icon" width="128" />
-</p>
+  <img src="assets/icon.png" alt="ELaunch Icon" width="128" />
 
 **Launch Microsoft Edge profiles in one click.**
 ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
+</p>
 
 **Why ELaunch?**
 - Switching Edge profiles manually takes too many steps: opening the browser, clicking your avatar, and selecting a profile from the dropdown menu.
