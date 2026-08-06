@@ -1,5 +1,9 @@
 # ELaunch
 
+<p align="center">
+  <img src="assets/icon.ico" alt="ELaunch Icon" width="128" />
+</p>
+
 **Launch Microsoft Edge profiles in one click.**
 ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
 
@@ -13,6 +17,7 @@ ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
 
 ## # Index
 - [Features](#-features)
+- [Screenshots](#-screenshots)
 - [Installation and Download](#-how-to-install)
 - [Contribute](#-how-to-contribute)
 - [Requirements](#-requirements)
@@ -31,6 +36,18 @@ ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
 - **100% Local & Private:** No data leaves your device — nothing is tracked or uploaded.
 - **In-App Settings:** Theme switching, privacy policy, open-source licenses, and about screen, all built in.
 - **In-App Feedback:** A built-in feedback page lets you reach the developer without leaving the app.
+
+---
+
+## # Screenshots
+
+### Dark Mode
+![ELaunch Dark Theme](assets/screenshots/screenshotDark.png)
+
+### Light Mode
+![ELaunch Light Theme](assets/screenshots/screenshot_1.png)
+
+> **View all screenshots & previews:** [assets/screenshots/screenshots.md](assets/screenshots/screenshots.md)
 
 ---
 
