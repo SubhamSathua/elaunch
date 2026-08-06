@@ -135,7 +135,7 @@ namespace E_Launchpad.Views
             {
                 var psi = new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = "https://github.com/Subham-x/E-Launchpad",
+                    FileName = "https://github.com/SubhamSathua/elaunch",
                     UseShellExecute = true
                 };
                 System.Diagnostics.Process.Start(psi);

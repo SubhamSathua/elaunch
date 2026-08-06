@@ -456,7 +456,7 @@
                                                    FontSize="12"
                                                    Margin="0,0,0,3"/>
                                         <TextBlock x:Name="SourceCodeLink"
-                                                   Text="https://github.com/Subham-x/E-Launchpad"
+                                                   Text="https://github.com/SubhamSathua/elaunch"
                                                    Foreground="#0078D4"
                                                    FontSize="12"
                                                    Cursor="Hand"
@@ -469,7 +469,7 @@
                                                    Foreground="{DynamicResource Text.Primary}"
                                                    FontSize="12"
                                                    Margin="0,0,0,3"/>
-                                        <TextBlock Text="MIT License"
+                                        <TextBlock Text="Apache License 2.0"
                                                    Foreground="{DynamicResource Text.Primary}"
                                                    FontSize="12"
                                                    Margin="10,0,0,15"/>

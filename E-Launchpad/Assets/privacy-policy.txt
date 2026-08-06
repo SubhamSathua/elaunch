@@ -20,7 +20,7 @@ E-Launchpad is an INDEPENDENT, THIRD-PARTY, OPEN-SOURCE application.
   associated with Microsoft Corporation or Microsoft Edge in any way.
 - "Microsoft" and "Microsoft Edge" are registered trademarks of Microsoft
   Corporation.
-- This software is provided under the MIT License and is community-developed.
+- This software is provided under the Apache License 2.0 and is community-developed.
 
 1. INFORMATION WE COLLECT
 E-Launchpad does NOT collect, transmit, or store any personal data.
@@ -97,9 +97,9 @@ Under GDPR, CCPA, and other privacy regulations, you retain all rights to your
 data, which remains entirely on your device.
 
 9. OPEN-SOURCE TRANSPARENCY
-E-Launchpad is open-source software licensed under the MIT License.
+E-Launchpad is open-source software licensed under the Apache License 2.0.
 
-- Source Code: https://github.com/Subham-x/E-Launchpad
+- Source Code: https://github.com/SubhamSathua/elaunch
 - You may inspect, audit, modify, and distribute the source code
 - The codebase is publicly available for verification of these privacy claims
 
@@ -114,39 +114,33 @@ updated Privacy Policy.
 11. LIMITATION OF LIABILITY
 E-Launchpad is provided "AS IS" without warranty of any kind, express or
 implied. The developer shall not be liable for any damages arising from the
-use of this Application. See the MIT License for full terms.
+use of this Application. See the Apache License 2.0 for full terms.
 
 12. CONTACT INFORMATION
 For questions, concerns, or requests regarding this Privacy Policy:
 
 Developer: Subham Kumar Sathua
 Email: hyper.devstudio@protonmail.com
-GitHub: https://github.com/Subham-x/E-Launchpad
+GitHub: https://github.com/SubhamSathua/elaunch
 
 13. GOVERNING LAW
-This software is distributed under the MIT License. By using E-Launchpad, you
-agree to the terms of the MIT License included below. The developer makes no
-warranties and accepts no liability beyond what is stated in the MIT License.
+This software is distributed under the Apache License 2.0. By using E-Launchpad, you
+agree to the terms of the Apache License 2.0 included below. The developer makes no
+warranties and accepts no liability beyond what is stated in the Apache License 2.0.
 
 
-MIT License
+Apache License 2.0
 
 Copyright (c) 2026 Subham Kumar Sathua
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+    http://www.apache.org/licenses/LICENSE-2.0
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

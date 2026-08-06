@@ -1,11 +1,13 @@
 # E Launchpad
 
 **Launch Microsoft Edge profiles in one click.**
+ELaunch is, open-source profile launcher for Microsoft Edge on Windows.
 
-E Launchpad is an open-source desktop launcher for Microsoft Edge profiles on Windows. It lets you separate all your browser stuff — create profiles for friends and family, or split between work and fun — and jump straight into the right one from a single screen.
-
-**Use Case:**
-You use multiple Microsoft Edge profiles (work, personal, family, friends). Instead of opening the Edge profile picker or typing `--profile-directory` arguments every time, E Launchpad shows all your profiles as cards with their icons and lets you launch any profile instantly — or browse as a guest.
+**Why ELaunch?**
+- Switching Edge profiles manually takes too many steps: opening the browser, clicking your avatar, and selecting a profile from the dropdown menu.
+- ELaunch cuts out the middleman—launch directly into any Edge profile straight from your desktop in a single click.
+- ELaunch shows all your profiles as cards with their icons and lets you launch any profile instantly — or browse as a guest.
+- Built for Multi-Profile Users: The fastest way to organize and switch between Work, Personal, Family, and test profiles.
 
 ---
 
@@ -114,9 +116,9 @@ This project is licensed under the **Apache License 2.0**.
 ---
 
 ## # Contact
-**Author:** Subham Kumar Sathua
-**GitHub:** [@SubhamSathua](https://github.com/SubhamSathua)
-**Email:** [hyper.devstudio@protonmail.com](mailto:hyper.devstudio@protonmail.com)
+- **Author:** Subham Kumar Sathua
+- **GitHub:** [@SubhamSathua](https://github.com/SubhamSathua)
+- **Email:** [hyper.devstudio@protonmail.com](mailto:hyper.devstudio@protonmail.com)
 
 ---
 
