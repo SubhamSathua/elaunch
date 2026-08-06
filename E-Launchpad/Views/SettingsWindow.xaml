@@ -138,6 +138,22 @@
                                            FontWeight="Normal"/>
                             </Border>
                             
+                            <!-- Open Source Licenses Button -->
+                            <Border x:Name="LicenseButton"
+                                    Background="{DynamicResource Settings.UnselectedListViewBg}"
+                                    CornerRadius="10"
+                                    Padding="15,12"
+                                    Margin="0,0,0,8"
+                                    Cursor="Hand"
+                                    MouseLeftButtonDown="LicenseButton_Click"
+                                    MouseEnter="NavButton_MouseEnter"
+                                    MouseLeave="NavButton_MouseLeave">
+                                <TextBlock Text="Open Source Licenses"
+                                           Foreground="{DynamicResource Text.Primary}"
+                                           FontSize="14"
+                                           FontWeight="Normal"/>
+                            </Border>
+                            
                             <!-- About Button -->
                             <Border x:Name="AboutButton"
                                     Background="{DynamicResource Settings.UnselectedListViewBg}"
@@ -294,6 +310,75 @@
                                              Cursor="IBeam"/>
                                 </ScrollViewer>
                             </StackPanel>
+                            
+                            <!-- Open Source Licenses Content -->
+                            <Grid x:Name="LicenseContent"
+                                  Visibility="Collapsed">
+                                
+                                <!-- License List -->
+                                <Grid x:Name="LicenseListView">
+                                    <StackPanel>
+                                        <TextBlock Text="Open Source Licenses"
+                                                   Foreground="{DynamicResource Text.Primary}"
+                                                   FontSize="20"
+                                                   FontWeight="SemiBold"
+                                                   Margin="0,0,0,5"/>
+                                        
+                                        <Rectangle Height="1"
+                                                   Fill="{DynamicResource Settings.MainBgOutline}"
+                                                   Margin="0,0,0,15"/>
+                                        
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                      Height="180"
+                                                      utils:ScrollWheelHelper.Sensitivity="0.5"
+                                                      Style="{StaticResource CustomScrollViewer}">
+                                            <StackPanel x:Name="LicenseListPanel"/>
+                                        </ScrollViewer>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                <!-- License Detail -->
+                                <Grid x:Name="LicenseDetailView"
+                                      Visibility="Collapsed">
+                                    <StackPanel>
+                                        <!-- Back Button -->
+                                        <Border x:Name="LicenseBackButton"
+                                                Background="{DynamicResource Settings.UnselectedListViewBg}"
+                                                CornerRadius="8"
+                                                Padding="10,6"
+                                                Margin="0,0,0,10"
+                                                HorizontalAlignment="Left"
+                                                Cursor="Hand"
+                                                MouseLeftButtonDown="LicenseBackButton_Click"
+                                                MouseEnter="NavButton_MouseEnter"
+                                                MouseLeave="NavButton_MouseLeave">
+                                            <TextBlock Text="← Back to licenses"
+                                                       Foreground="{DynamicResource Text.Primary}"
+                                                       FontSize="13"/>
+                                        </Border>
+                                        
+                                        <Rectangle Height="1"
+                                                   Fill="{DynamicResource Settings.MainBgOutline}"
+                                                   Margin="0,0,0,15"/>
+                                        
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                      Height="180"
+                                                      utils:ScrollWheelHelper.Sensitivity="0.5"
+                                                      Style="{StaticResource CustomScrollViewer}">
+                                            <TextBox x:Name="LicenseDetailText"
+                                                     IsReadOnly="True"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     Foreground="{DynamicResource Text.Secondary}"
+                                                     FontSize="12"
+                                                     TextWrapping="Wrap"
+                                                     AcceptsReturn="True"
+                                                     IsTabStop="False"
+                                                     Cursor="IBeam"/>
+                                        </ScrollViewer>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
                             
                             <!-- About Content -->
                             <StackPanel x:Name="AboutContent"

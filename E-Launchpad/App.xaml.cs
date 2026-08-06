@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
-using E_Launchpad.Services;
 
 namespace E_Launchpad
 {
@@ -12,8 +11,6 @@ namespace E_Launchpad
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            // Load branding before any window XAML resolves {x:Static Branding.*}
-            Branding.Initialize();
             base.OnStartup(e);
         }
     }

@@ -1,9 +1,13 @@
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Collections.Generic;
+using System.Text.Json;
+using E_Launchpad.Models;
 using E_Launchpad.Services;
 
 namespace E_Launchpad.Views
@@ -58,6 +62,7 @@ namespace E_Launchpad.Views
             ThemeButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             FeedbackButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             PrivacyButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            LicenseButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             AboutButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             
             // Re-apply selection to current selected button
@@ -83,6 +88,7 @@ namespace E_Launchpad.Views
         {
             LoadIcons();
             LoadPrivacyPolicy();
+            LoadOpenSourceLicenses();
             LoadAboutIcon();
             
             // Set dynamic copyright year
@@ -159,6 +165,125 @@ namespace E_Launchpad.Views
             catch (Exception ex)
             {
                 PrivacyPolicyText.Text = $"Failed to load privacy policy: {ex.Message}";
+            }
+        }
+        
+        private void LoadOpenSourceLicenses()
+        {
+            try
+            {
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string licensesPath = System.IO.Path.Combine(basePath, "license", "open-source license.json");
+                
+                if (!System.IO.File.Exists(licensesPath))
+                {
+                    LicenseListPanel.Children.Add(CreateLicenseErrorItem("License manifest not found."));
+                    return;
+                }
+                
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var licenses = JsonSerializer.Deserialize<List<LicenseInfo>>(
+                    System.IO.File.ReadAllText(licensesPath), options);
+                
+                LicenseListPanel.Children.Clear();
+                
+                if (licenses == null || licenses.Count == 0)
+                {
+                    LicenseListPanel.Children.Add(CreateLicenseErrorItem("No open-source licenses listed."));
+                    return;
+                }
+                
+                foreach (var license in licenses)
+                {
+                    var item = new Border
+                    {
+                        Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg"),
+                        CornerRadius = new CornerRadius(10),
+                        Padding = new Thickness(15, 12, 15, 12),
+                        Margin = new Thickness(0, 0, 0, 8),
+                        Cursor = Cursors.Hand,
+                        Tag = license
+                    };
+                    item.MouseLeftButtonDown += LicenseItem_Click;
+                    item.MouseEnter += LicenseItem_MouseEnter;
+                    item.MouseLeave += LicenseItem_MouseLeave;
+                    
+                    var stack = new StackPanel();
+                    stack.Children.Add(new TextBlock
+                    {
+                        Text = license.Name,
+                        Foreground = (SolidColorBrush)FindResource("Text.Primary"),
+                        FontSize = 14,
+                        FontWeight = FontWeights.SemiBold
+                    });
+                    stack.Children.Add(new TextBlock
+                    {
+                        Text = license.Type,
+                        Foreground = (SolidColorBrush)FindResource("Text.Secondary"),
+                        FontSize = 12,
+                        Margin = new Thickness(0, 2, 0, 0)
+                    });
+                    
+                    item.Child = stack;
+                    LicenseListPanel.Children.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to load licenses: {ex.Message}");
+                LicenseListPanel.Children.Add(CreateLicenseErrorItem($"Failed to load licenses: {ex.Message}"));
+            }
+        }
+        
+        private System.Windows.Controls.TextBlock CreateLicenseErrorItem(string message)
+        {
+            return new System.Windows.Controls.TextBlock
+            {
+                Text = message,
+                Foreground = (SolidColorBrush)FindResource("Text.Secondary"),
+                FontSize = 12,
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(5, 5, 5, 5)
+            };
+        }
+        
+        private void LicenseItem_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is not Border item || item.Tag is not LicenseInfo license) return;
+            
+            try
+            {
+                string licensePath = System.IO.Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory, "license", license.Path);
+                
+                LicenseDetailText.Text = System.IO.File.Exists(licensePath)
+                    ? System.IO.File.ReadAllText(licensePath)
+                    : "License file not found.";
+            }
+            catch (Exception ex)
+            {
+                LicenseDetailText.Text = $"Failed to load license: {ex.Message}";
+            }
+            
+            LicenseListView.Visibility = Visibility.Collapsed;
+            LicenseDetailView.Visibility = Visibility.Visible;
+        }
+        
+        private void LicenseItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var item = sender as Border;
+            if (item != null)
+            {
+                item.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewHover");
+            }
+        }
+        
+        private void LicenseItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var item = sender as Border;
+            if (item != null)
+            {
+                item.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             }
         }
         
@@ -241,6 +366,22 @@ namespace E_Launchpad.Views
             ShowContent(PrivacyContent);
         }
 
+        private void LicenseButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            SelectNavigationButton(LicenseButton);
+            ShowContent(LicenseContent);
+            
+            // Reset to list view if a detail view was showing
+            LicenseDetailView.Visibility = Visibility.Collapsed;
+            LicenseListView.Visibility = Visibility.Visible;
+        }
+
+        private void LicenseBackButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            LicenseDetailView.Visibility = Visibility.Collapsed;
+            LicenseListView.Visibility = Visibility.Visible;
+        }
+
         private void AboutButton_Click(object sender, MouseButtonEventArgs e)
         {
             SelectNavigationButton(AboutButton);
@@ -253,12 +394,14 @@ namespace E_Launchpad.Views
             ThemeButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             FeedbackButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             PrivacyButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
+            LicenseButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             AboutButton.Background = (SolidColorBrush)FindResource("Settings.UnselectedListViewBg");
             
             // Set font weight to normal
             ((System.Windows.Controls.TextBlock)ThemeButton.Child).FontWeight = FontWeights.Normal;
             ((System.Windows.Controls.TextBlock)FeedbackButton.Child).FontWeight = FontWeights.Normal;
             ((System.Windows.Controls.TextBlock)PrivacyButton.Child).FontWeight = FontWeights.Normal;
+            ((System.Windows.Controls.TextBlock)LicenseButton.Child).FontWeight = FontWeights.Normal;
             ((System.Windows.Controls.TextBlock)AboutButton.Child).FontWeight = FontWeights.Normal;
             
             // Highlight selected button
@@ -269,11 +412,12 @@ namespace E_Launchpad.Views
             _selectedNavButton = selectedButton;
         }
 
-        private void ShowContent(System.Windows.Controls.StackPanel contentToShow)
+        private void ShowContent(System.Windows.UIElement contentToShow)
         {
             // Hide all content
             ThemeContent.Visibility = Visibility.Collapsed;
             PrivacyContent.Visibility = Visibility.Collapsed;
+            LicenseContent.Visibility = Visibility.Collapsed;
             AboutContent.Visibility = Visibility.Collapsed;
             
             // Show selected content

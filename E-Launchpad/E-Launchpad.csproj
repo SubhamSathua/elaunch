@@ -21,8 +21,8 @@
     <None Update="Assets\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <!-- Copy branding file to output -->
-    <None Update="branding.json">
+    <!-- Copy license folder to output -->
+    <None Update="license\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <!-- Include icon as WPF resource -->
