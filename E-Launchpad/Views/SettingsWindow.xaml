@@ -282,28 +282,21 @@
                             </StackPanel>
                             
                             <!-- Privacy Policy Content -->
-                            <Grid x:Name="PrivacyContent"
-                                  Visibility="Collapsed">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                            <StackPanel x:Name="PrivacyContent"
+                                        Visibility="Collapsed">
+                                <TextBlock Text="Privacy Policy"
+                                           Foreground="{DynamicResource Text.Primary}"
+                                           FontSize="20"
+                                           FontWeight="SemiBold"
+                                           Margin="0,0,0,5"/>
                                 
-                                <StackPanel Grid.Row="0">
-                                    <TextBlock Text="Privacy Policy"
-                                               Foreground="{DynamicResource Text.Primary}"
-                                               FontSize="20"
-                                               FontWeight="SemiBold"
-                                               Margin="0,0,0,5"/>
-                                    
-                                    <Rectangle Height="1"
-                                               Fill="{DynamicResource Settings.MainBgOutline}"
-                                               Margin="0,0,0,15"/>
-                                </StackPanel>
+                                <Rectangle Height="1"
+                                           Fill="{DynamicResource Settings.MainBgOutline}"
+                                           Margin="0,0,0,15"/>
                                 
-                                <ScrollViewer Grid.Row="1"
-                                              VerticalScrollBarVisibility="Auto"
-                                              utils:ScrollWheelHelper.Sensitivity="1.0"
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              Height="180"
+                                              utils:ScrollWheelHelper.Sensitivity="0.5"
                                               Style="{StaticResource CustomScrollViewer}">
                                     <TextBox x:Name="PrivacyPolicyText"
                                              IsReadOnly="True"
@@ -312,13 +305,11 @@
                                              Foreground="{DynamicResource Text.Secondary}"
                                              FontSize="12"
                                              TextWrapping="Wrap"
-                                             Padding="0,0,12,15"
-                                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                             AcceptsReturn="True"
                                              IsTabStop="False"
                                              Cursor="IBeam"/>
                                 </ScrollViewer>
-                            </Grid>
+                            </StackPanel>
                             
                             <!-- Open Source Licenses Content -->
                             <Grid x:Name="LicenseContent"
@@ -326,12 +317,7 @@
                                 
                                 <!-- License List -->
                                 <Grid x:Name="LicenseListView">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    
-                                    <StackPanel Grid.Row="0">
+                                    <StackPanel>
                                         <TextBlock Text="Open Source Licenses"
                                                    Foreground="{DynamicResource Text.Primary}"
                                                    FontSize="20"
@@ -341,25 +327,20 @@
                                         <Rectangle Height="1"
                                                    Fill="{DynamicResource Settings.MainBgOutline}"
                                                    Margin="0,0,0,15"/>
+                                        
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                      Height="180"
+                                                      utils:ScrollWheelHelper.Sensitivity="0.5"
+                                                      Style="{StaticResource CustomScrollViewer}">
+                                            <StackPanel x:Name="LicenseListPanel"/>
+                                        </ScrollViewer>
                                     </StackPanel>
-                                    
-                                    <ScrollViewer Grid.Row="1"
-                                                  VerticalScrollBarVisibility="Auto"
-                                                  utils:ScrollWheelHelper.Sensitivity="0.8"
-                                                  Style="{StaticResource CustomScrollViewer}">
-                                        <StackPanel x:Name="LicenseListPanel" Margin="0,0,12,15"/>
-                                    </ScrollViewer>
                                 </Grid>
                                 
                                 <!-- License Detail -->
                                 <Grid x:Name="LicenseDetailView"
                                       Visibility="Collapsed">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    
-                                    <StackPanel Grid.Row="0">
+                                    <StackPanel>
                                         <!-- Back Button -->
                                         <Border x:Name="LicenseBackButton"
                                                 Background="{DynamicResource Settings.UnselectedListViewBg}"
@@ -379,35 +360,34 @@
                                         <Rectangle Height="1"
                                                    Fill="{DynamicResource Settings.MainBgOutline}"
                                                    Margin="0,0,0,15"/>
+                                        
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                      Height="180"
+                                                      utils:ScrollWheelHelper.Sensitivity="0.5"
+                                                      Style="{StaticResource CustomScrollViewer}">
+                                            <TextBox x:Name="LicenseDetailText"
+                                                     IsReadOnly="True"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     Foreground="{DynamicResource Text.Secondary}"
+                                                     FontSize="12"
+                                                     TextWrapping="Wrap"
+                                                     AcceptsReturn="True"
+                                                     IsTabStop="False"
+                                                     Cursor="IBeam"/>
+                                        </ScrollViewer>
                                     </StackPanel>
-                                    
-                                    <ScrollViewer Grid.Row="1"
-                                                  VerticalScrollBarVisibility="Auto"
-                                                  utils:ScrollWheelHelper.Sensitivity="1.0"
-                                                  Style="{StaticResource CustomScrollViewer}">
-                                        <TextBox x:Name="LicenseDetailText"
-                                                 IsReadOnly="True"
-                                                 Background="Transparent"
-                                                 BorderThickness="0"
-                                                 Foreground="{DynamicResource Text.Secondary}"
-                                                 FontSize="12"
-                                                 TextWrapping="Wrap"
-                                                 Padding="0,0,12,15"
-                                                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                                 IsTabStop="False"
-                                                 Cursor="IBeam"/>
-                                    </ScrollViewer>
                                 </Grid>
                             </Grid>
                             
                             <!-- About Content -->
-                            <Grid x:Name="AboutContent"
-                                  Visibility="Collapsed">
+                            <StackPanel x:Name="AboutContent"
+                                        Visibility="Collapsed">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              Height="230"
                                               utils:ScrollWheelHelper.Sensitivity="0.5"
                                               Style="{StaticResource CustomScrollViewer}">
-                                    <StackPanel Margin="0,0,12,15">
+                                    <StackPanel>
                                         <!-- App Icon -->
                                         <Image x:Name="AboutAppIcon"
                                                Width="64"
@@ -506,7 +486,7 @@
                                                    Margin="0,0,0,10"/>
                                     </StackPanel>
                                 </ScrollViewer>
-                            </Grid>
+                            </StackPanel>
                         </Grid>
                     </Border>
                 </Grid>
