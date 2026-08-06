@@ -404,7 +404,8 @@
                                                    Margin="0,0,0,3"/>
                                         
                                         <!-- Version -->
-                                        <TextBlock Text="Version 1.1.0.7"
+                                        <TextBlock x:Name="AppVersionText"
+                                                   Text="Version 2.4"
                                                    Foreground="{DynamicResource Text.Secondary}"
                                                    FontSize="11"
                                                    HorizontalAlignment="Center"

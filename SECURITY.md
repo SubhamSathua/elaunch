@@ -6,7 +6,7 @@ The following versions of ELaunch are currently being supported with security up
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.1.0.7 | ✅ |
+| 2.4 | ✅ |
 
 ## Reporting a Vulnerability
 

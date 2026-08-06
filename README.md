@@ -2,7 +2,6 @@
 
 <p align="center">
   <img src="assets/icon.png" alt="ELaunch Icon" width="128" />
-
 **Launch Microsoft Edge profiles in one click.**
 ELaunch is an open-source profile launcher for Microsoft Edge on Windows.
 </p>

@@ -93,6 +93,13 @@ namespace ELaunch.Views
             
             // Set dynamic copyright year
             CopyrightText.Text = $"© {DateTime.Now.Year} {Branding.AppBrand} contributors";
+
+            // Set dynamic version display
+            var appVer = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            if (appVer != null)
+            {
+                AppVersionText.Text = $"Version {appVer.Major}.{appVer.Minor}";
+            }
             
             // Set Theme button as selected by default
             SelectNavigationButton(ThemeButton);

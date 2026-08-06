@@ -1,0 +1,80 @@
+name: Build & Release ELaunch
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on version tags (e.g., v1.0.0, v1.2.3)
+
+jobs:
+  release:
+    name: Build and Create Release
+    runs-on: windows-latest
+    permissions:
+      contents: write # Required to create releases and upload assets
+
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # Update to match your target .NET SDK version
+
+      # 3. Restore solution dependencies
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      # =========================================================================
+      # 1. BUILD PORTABLE (Self-Contained / Standalone)
+      # =========================================================================
+      - name: Publish Portable Standalone
+        run: dotnet publish -c Release -r win-x64 --self-contained true -o ./publish/sc-portable
+
+      - name: Compress Portable Standalone
+        shell: powershell
+        run: |
+          Compress-Archive -Path ./publish/sc-portable/* -DestinationPath ./elaunch-${{ github.ref_name }}-win-x64-portable-standalone.zip
+
+      # =========================================================================
+      # 2. BUILD PORTABLE (Framework-Dependent / Lite)
+      # =========================================================================
+      - name: Publish Portable Lite
+        run: dotnet publish -c Release -r win-x64 --self-contained false -o ./publish/fd-portable
+
+      - name: Compress Portable Lite
+        shell: powershell
+        run: |
+          Compress-Archive -Path ./publish/fd-portable/* -DestinationPath ./elaunch-${{ github.ref_name }}-win-x64-portable-lite.zip
+
+      # =========================================================================
+      # 3 & 4. BUILD INSTALLERS (MSI / EXE)
+      # =========================================================================
+      # Note: Replace the commands below with your installer build commands
+      # (e.g., WiX Toolset, Inno Setup, or MSBuild setup project).
+
+      # Example for Inno Setup (iscc is pre-installed on windows-latest):
+      # - name: Build Standalone Installer
+      #   run: iscc /DVersion=${{ github.ref_name }} /DSelfContained=true Installer/setup.iss
+
+      # Example for WiX Toolset:
+      # - name: Build MSI Installers
+      #   run: msbuild SetupProject.wixproj /p:Configuration=Release
+
+      # =========================================================================
+      # 5. CREATE GITHUB RELEASE & ATTACH ALL 4 FILES
+      # =========================================================================
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            elaunch-${{ github.ref_name }}-win-x64-portable-standalone.zip
+            elaunch-${{ github.ref_name }}-win-x64-portable-lite.zip
+            elaunch-${{ github.ref_name }}-win-x64-setup-standalone.msi
+            elaunch-${{ github.ref_name }}-win-x64-setup-lite.msi
